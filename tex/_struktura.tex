@@ -1,0 +1,38 @@
+\bibliographystyle{unsrt}
+\nocite{*} %wszystkie wpisy trafią do bibliografii
+\lstset{language=Java, tabsize=2,  basicstyle=\footnotesize\ttfamily, keywordstyle=\underbar}
+\input{_tytulowa}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Spis treści}
+\tableofcontents
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures
+\clearpage
+\input{wstep}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\input{radio-propagacja}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\input{lokalizacja-bezprzewodowa}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\input{algorytm-lokalizacji}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\input{algorytm-fuzji}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\input{platforma-testowa}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\input{testy}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibliographystyle{unsrt}	
+\bibliography{bibliografia}
+%\end{center}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Wykaz skrótów}
+\input{wykaz}

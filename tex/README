@@ -1,0 +1,13 @@
+Szablon pracy inżynierksiej/magisterskiej przygotowany według zaleceń Instytutu Telekomunikacji.
+Autor: Tomasz Kabala
+
+Plik można utworzyć za pomocą polecenie make pod Linuxem (jest przygotowany plik Makefile).
+W katalogu img jest znajduje się skrypt konwertujący pliki eps na pdf.
+Wymagana jest wersja pakietu geometry w wersji 5.0+ (zastosowałem nowe polecenie \newgeometry
+celem osiągnięcia innych marginesów na stronie tytułowej)
+Po usunięciu zbędnych elementów ze strony tytułowj należy dopracować rozmieszczenie elementów
+za pomocą poleceń \vspace.
+
+Tworzone są 2 dokumenty:
+msc_onside.pdf - druk jednostronny, do publikowania w sieci
+msc_twoside.pdf - druk dwustronny, do druku
