@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{report}
+\documentclass[a4paper, 12pt, twoside]{report}
 \usepackage{latexsym}
 \usepackage[MeX]{polski}
 \usepackage[utf8]{inputenc}
@@ -14,9 +14,10 @@
 \pagestyle{fancy}
 
 \fancyhead{} % clear all header fields
-\fancyhead[R]{\thepage}
+\fancyhead[LE, RO]{\thepage}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
-\fancyhead[L]{\leftmark}
+\fancyhead[RE]{\bfseries\nouppercase{\leftmark}}      % Chapter in the right on even pages
+\fancyhead[LO]{\bfseries\nouppercase{\rightmark}\chaptermark}     % Section in the left on odd pages
 \fancyfoot{} % clear all footer fields
 \renewcommand{\headrulewidth}{0.4pt}
 
