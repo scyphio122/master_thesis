@@ -3,12 +3,13 @@
 
 \section{Urządzenie deaktywujące}
 
-Ze względu na pełniony przez urządzenie cel, powinno ono zawsze towarzyszyć osobie upoważnionej do uruchomienia pojazdu. Biorąc pod uwagę przykład zastosowania urządzenia we flotach pojazdów, szybko można zauważyć, że zazwyczaj do pojazdu nie jest przypisany jedna osoba, natomiast może być używany przez wielu kierowców. Stąd też logicznym staje się wniosek, że urządzenie nie może być przyporządkowane do kierowcy, lecz do pojazdu. Idealnym rozwiązaniem staje się umieszczenie go przy kluczykach (karcie umożliwiającej uruchomienie pojazdu bezkluczykowo) jako dodatkowy brelok. Z tego powodu kluczowe stają się wymiary samego urządzenia. nie powinno być ono zbyt grube, aby nie przeszkadzało w kieszeni, ani zbyt duże, aby nie obijało się o nogi, a tym samym nie rozpraszało kierującego w trakcie jazdy.
+Ze względu na pełniony przez urządzenie cel, powinno ono zawsze towarzyszyć osobie upoważnionej do uruchomienia pojazdu. Biorąc pod uwagę przykład zastosowania urządzenia we flotach pojazdów, szybko można zauważyć, że zazwyczaj do pojazdu nie jest przypisana jedna osoba, lecz może być on używany przez wielu kierowców. Stąd też logicznym staje się wniosek, że urządzenie nie może być przyporządkowane do kierowcy, lecz do pojazdu. Idealnym rozwiązaniem wydaje się umieszczenie go przy kluczykach lub karcie umożliwiającej uruchomienie pojazdu bezkluczykowo, jako dodatkowy brelok. Z tego powodu kluczowe stają się wymiary samego urządzenia. nie powinno być ono zbyt grube, aby nie przeszkadzało w kieszeni, ani zbyt duże, aby nie obijało się o nogi, a tym samym nie rozpraszało kierującego w trakcie jazdy.
+Rozmiar płytki urządzenia dezaktywującego wynoszą odpowiednio 32 mm x 43 mm szerokości i wysokości.
 
 Ze względu na prostotę urządzenia, składa się ono z bardzo niewielu modułów.
-Na górnej warstwi znajduje się serce układu - mikrokontroler nRF52832 wraz z anteną 2.4 GHz ISM do komunikacji poprzez Bluetooth Low Energy. Dodatkowo, znajdują się tam złącze do programowania, złącze debugowe oraz antena NFC, zwizualizowana jako koło w kolorze niebieskim. Górną warstwę płytki przedstawiono na rysunku \ref{fig:image_key_tag_top_board}.
+Na górnej warstwie znajduje się serce układu - mikrokontroler nRF52832 wraz z anteną 2.4 GHz ISM do komunikacji poprzez Bluetooth Low Energy. Dodatkowo, znajdują się tam złącze do programowania, złącze debugowe oraz antena NFC, zwizualizowana jako koło w kolorze niebieskim. Górną warstwę płytki przedstawiono na rysunku \ref{fig:image_key_tag_top_board}.
 
-Centralne miejsce na dolnej warstwie płytki zajmuje bateria litowa CR2032, która zapewni kilkuletnią pracę dezaktywatora. Posiada posiada średnicę 20mm oraz grubość 3.2 mm. Wygląd oraz wizualizację dolnej warstwy płytki przedstawiono na rysunku \ref{fig:image_key_tag_bottom_board}.
+Centralne miejsce na dolnej warstwie płytki zajmuje bateria litowa CR2032, która zapewni kilkuletnią pracę dezaktywatora. Posiada ona średnicę 20mm oraz grubość 3.2 mm co stanowi idealny kompromis pomiędzy wymiarami urządzenia, a czasem jego pracy, bowiem mniejsze baterie oferują mniejszą pojemność liczoną w miliampero godzinach. Wygląd oraz wizualizację dolnej warstwy płytki przedstawiono na rysunku \ref{fig:image_key_tag_bottom_board}.
 
 \begin{figure}[H]
 \centering
@@ -83,9 +84,15 @@ Jak widać, im większa szerokość, ścieżki, tym większa jej powierzchnia a 
  
  I - prąd płynący przez ścieżkę
  
-Drugi przypadek wynika niejako z pierwszego. Gdy opór ścieżki jest zbyt duży, energia tracona na ścieżce jest tak duża, że ulega ona przepaleniu i całe urządzenie przestaje działać.
+\clearpage
+Drugi przypadek wynika niejako z pierwszego. Gdy opór ścieżki jest zbyt duży, energia tracona na ścieżce jest tak duża, że ulega ona przepaleniu i całe urządzenie przestaje działać. Aby się przed tym ustrzec, ścieżki zasilające mają grubość 2 mm, co pozwala na przepływ około 3.5 A nateżęnia ciągłego prądu w temperaturze 20 stopni Celsjusza. Ze względu jednak na fakt, iż główne obciążenie urządzenia stanowi prąd chwilowy, trwający bardzo krótko, średnie natężenie prądu będzie dużo niższe od tej wartości. Tabela zestawiająca zależność między grubością ścieżek na płytce PCB od wartości maksymalnego dopuszczalnego prądu ciągłego, przepływającego przez nią, przedstawiono na rysunku \ref{fig:image_pcb_wire_thickness}.
 
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6cm]{img/board_layouts/pcb_wire_thickness.png}
+	\caption{Tabela opisująca korelację między grubością ścieżek, a maksymalnym dopuszczalnym natężęniem prądu}
+	\label{fig:image_pcb_wire_thickness}
+\end{figure}
  
 
 \begin{figure}[H]
