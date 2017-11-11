@@ -13,21 +13,21 @@ Ze względu na poziom skomplikowania układu, schemat elektroniczny musiał zost
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=14cm]{img/schematics/mainboard_power.jpg}
-	\caption{Schemat modułu zasilania urządzenia lokalizującego}
+	\caption{Schemat modułu zasilania urządzenia lokalizującego. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_power_schematic}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=14cm]{img/schematics/mainboard_functional.jpg}
-	\caption{Schemat modułu funkcjonalnego urządzenia lokalizującego}
+	\caption{Schemat modułu funkcjonalnego urządzenia lokalizującego. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_functional_schematic}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=14cm]{img/schematics/mainboard_NFC.jpg}
-	\caption{Schemat modułu NFC urządzenia lokalizującego}
+	\caption{Schemat modułu NFC urządzenia lokalizującego. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_NFC_schematic}
 \end{figure}
 
@@ -41,7 +41,7 @@ Ponieważ jednym z wymagań układu jest możliwość zasilania bateryjnego, kon
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10cm]{img/schematics/mainboard_power_input.jpg}
-	\caption{Schemat modułu zasilania wejściowego urządzenia lokalizującego}
+	\caption{Schemat modułu zasilania wejściowego urządzenia lokalizującego. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_power_input}
 \end{figure}
 
@@ -50,7 +50,7 @@ Niestety, często napięcie wejściowe, nawet po zadziałaniu zabezpieczenia w p
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=17cm]{img/schematics/mainboard_power_converter.jpg}
-	\caption{Schemat przetwornicy impulsowej modułu zasilania urządzenia lokalizującego}
+	\caption{Schemat przetwornicy impulsowej modułu zasilania urządzenia lokalizującego. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_power_converter}
 \end{figure}
 
@@ -61,7 +61,7 @@ Ostatni stopień zasilania generuje z napięcia wyjściowego z przetwornicy napi
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=12cm]{img/schematics/mainboard_power_ldo.jpg}
-	\caption{Schemat stabilizatora napięcia modułu zasilania urządzenia lokalizującego}
+	\caption{Schemat stabilizatora napięcia modułu zasilania urządzenia lokalizującego. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_power_ldo}
 \end{figure}
 
@@ -72,7 +72,7 @@ Serce urządzenia stanowi mikrokontroler nRF52832 firmy Nordic Semiconductor. Uk
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{img/schematics/mainboard_functional_mcu.jpg}
-	\caption{Schemat modułu mikrokontrolera w urządzeniu lokalizującym}
+	\caption{Schemat modułu mikrokontrolera w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_functional_mcu}
 \end{figure}
 
@@ -89,7 +89,7 @@ Ponadto, kombinacja tych dwóch systemów umożliwia wykorzystanie funkcjonalno�
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{img/schematics/mainboard_functional_gps.jpg}
-	\caption{Schemat modułu układu GSM i GPS w urządzeniu lokalizującym}
+	\caption{Schemat modułu układu GSM i GPS w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_functional_gps_gsm}
 \end{figure}
 
@@ -98,7 +98,7 @@ W celu zwiększenia niezawodności działania urządzenia, zdecydowano zastosowa
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{img/schematics/mainboard_functional_gps_gsm_antennas.jpg}
-	\caption{Schemat modułu anten dla GSM i GPS w urządzeniu lokalizującym}
+	\caption{Schemat modułu anten dla GSM i GPS w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_functional_gps_gsm_antennas}
 \end{figure}
 
@@ -107,7 +107,7 @@ Ostatnią częścią układu GSM jest połączenie modułu z kartą SIM, umożli
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{img/schematics/mainboard_gsm_sim_card.jpg}
-	\caption{Schemat modułu karty SIM w urządzeniu lokalizującym}
+	\caption{Schemat modułu karty SIM w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_functional_gsm_sim_card}
 \end{figure}
 
@@ -118,15 +118,21 @@ Wewnętrzna pamięć flash mikrokontrolera jest niewystarczająca, aby przechowy
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{img/schematics/mainboard_functional_flash_memory.jpg}
-	\caption{Schemat modułu pamięci flash w urządzeniu lokalizującym}
+	\caption{Schemat modułu pamięci flash w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_functional_flash}
 \end{figure}
 
-\subsection{Moduł akcelerometra}
+\subsection{Moduł akcelerometru}
 
 Kolejną ważną częścią urządzenia jest moduł akcelerometru. Pozwala on na wybudzenie urządzenia w momencie przemieszczenia pojazdu, a w razie braku dezaktywacji - uruchomienie procedury alarmowej. Ponadto, dzięki jego wskazaniom możliwe jest wyznaczenie przyspieszenia pojazdu pozwalające na profilowanie stylu prowadzenia pojazdu przez kierowcę. Wbudowany żyroskop pozwoli na dokładniejsze profilowanie stylu jazdy kierowcy w trakcie pokonywania zakrętów oraz zmiany pasa.
 Schemat modułu akcelerometra przedstawiono na rysunku \ref{fig:image_mainboard_functional_accelerometer}.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{img/schematics/mainboard_functional_accelerometer.jpg}
+	\caption{Schemat modułu akcelerometru w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
+	\label{fig:image_mainboard_functional_accelerometer}
+\end{figure}
 
 \subsection{Moduł NFC}
 
@@ -136,14 +142,14 @@ Komunikacja odbywa się pomiędzy dwoma urządzeniami. Ze względu na sposób tr
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{img/schematics/mainboard_NFC_chip.jpg}
-	\caption{Schemat części cyfrowej modułu NFC w urządzeniu lokalizującym}
+	\caption{Schemat części cyfrowej modułu NFC w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_NFC_digital}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=15cm]{img/schematics/mainboard_NFC_analog.jpg}
-	\caption{Schemat części analogowej modułu NFC w urządzeniu lokalizującym}
+	\caption{Schemat części analogowej modułu NFC w urządzeniu lokalizującym. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_NFC_analog}
 \end{figure}
 
@@ -156,6 +162,6 @@ Głównym zadaniem tego urządzenia jest cykliczne rozgłaszanie swej obecności
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=12cm]{img/schematics/keytag.jpg}
-	\caption{Schemat modułu zasilania urządzenia deaktywującego}
+	\caption{Schemat modułu zasilania urządzenia deaktywującego. \\ Źródło: Twórczość własna}
 	\label{fig:image_keytag_schematic}
 \end{figure}

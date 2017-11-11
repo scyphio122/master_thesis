@@ -21,7 +21,7 @@ Centralne miejsce na dolnej warstwie płytki zajmuje bateria litowa CR2032, któ
 		\includegraphics[width=7.1cm]{img/board_layouts/key_tag_visualization_top.png}
 	}
 	
-	\caption{Wygląd górnej warstwy płytki urządzenia dezaktywującego oraz jej wizualizacja}
+	\caption{Wygląd górnej warstwy płytki urządzenia dezaktywującego oraz jej wizualizacja. \\ Źródło: Twórczość własna}
 	\label{fig:image_key_tag_top_board}
 \end{figure}
 
@@ -37,7 +37,7 @@ Centralne miejsce na dolnej warstwie płytki zajmuje bateria litowa CR2032, któ
 		\includegraphics[width=7.1cm]{img/board_layouts/key_tag_visualization_bottom.png}
 	}
 	
-	\caption{Wygląd dolnej warstwy płytki urządzenia dezaktywującego oraz jej wizualizacja}
+	\caption{Wygląd dolnej warstwy płytki urządzenia dezaktywującego oraz jej wizualizacja. \\ Źródło: Twórczość własna}
 	\label{fig:image_key_tag_bottom_board}
 \end{figure}
 
@@ -53,7 +53,7 @@ Przewody anten GPS oraz GSM są dodatkowo ekranowane, dzięki czemu znacznie zmn
 
 Wszystkie sygnały radiowe użyte w urządzeniu są sygnałami analogowymi. Są one podatne na zjawisko odbicia fali elektromagnetycznej, które polega na odbiciu sygnału na końcu przewodu, bądź ścieżki elektrycznej i nałożeniu się na sygnał pierwotny. Wprowadza to dodatkowe zakłócenia w transmisji sygnału, a spowodowane jest niedopasowaniem impedancji toru transmisyjnego. Aby zminimalizować ten efekt, należy zaprojektować ścieżki po których przesyłany jest sygnał wysokiej częstotliwości tak, aby miały odpowiednią impedancję, zgodną z impedancją anteny. Robi się to poprzez wyznaczenie grubości (wynika ona z grubości warsty miedzi, zazwyczaj 35 $\mu m$) oraz szerokości (dobór pod kątem optymalności zużycia miejsca na PCB) ścieżek radiowych. Na podstawie tak wyznaczonych parametrów wylicza się ich niezbędną długość, aby osiągnąć założoną impedancję. W przypadku sygnałów GPS, GSM oraz bluetooth wynosi ona 50 $\Omega$. Ostateczną impedancję, uwzględniającą pojemności i indukcyjności pasożytnicze między ścieżkami, zmierzoną po złożeniu płytki można jeszcze skorygować poprzez dobór elementów w filtrach przyantenowych (filtry: C45, R21, C47 oraz C44, R22, C46). Dodatkowo, ścieżki wysokiej częstotliwości prowadzi się łagodnymi łukami, bez ostrych załamań, które mogłyby zwiększających pojemność, a tym samym mogących zmienić impedancję. 
 
-W dodatku, w trakcie projektowania urządzenia należy pamiętać o wysokim chwilowym poborze prądu (aż do około 4-5 A). Z tego względu, trzeba zaprojektować odpowiednio grube ścieżki zasilające. Jest to wymagane z dwóch powodów. Pierwszym z nich jest fakt oporności ścieżki.
+W dodatku, w trakcie projektowania urządzenia należy pamiętać o wysokim chwilowym poborze prądu (aż do około 4 - 5 A). Z tego względu, trzeba zaprojektować odpowiednio grube ścieżki zasilające. Jest to wymagane z dwóch powodów. Pierwszym z nich jest fakt oporności ścieżki.
 
 \begin{equation}
  R = \rho \cdot l / S 
@@ -90,7 +90,7 @@ Drugi przypadek wynika niejako z pierwszego. Gdy opór ścieżki jest zbyt duży
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=6cm]{img/board_layouts/pcb_wire_thickness.png}
-	\caption{Tabela opisująca korelację między grubością ścieżek, a maksymalnym dopuszczalnym natężęniem prądu \cite{pcb_wire_thickness}}
+	\caption{Tabela opisująca korelację między grubością ścieżek, a maksymalnym dopuszczalnym natężęniem prądu. Źródło: \cite{pcb_wire_thickness}}
 	\label{fig:image_pcb_wire_thickness}
 \end{figure}
  
@@ -105,7 +105,7 @@ Drugi przypadek wynika niejako z pierwszego. Gdy opór ścieżki jest zbyt duży
 		\includegraphics[width=11cm]{img/board_layouts/mainboard_visualization_top.png}
 	}
 	
-	\caption{Wygląd górnej warstwy płytki urządzenia lokalizującego oraz jej wizualizacja}
+	\caption{Wygląd górnej warstwy płytki urządzenia lokalizującego oraz jej wizualizacja. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_top_board}
 \end{figure}
 
@@ -121,6 +121,6 @@ Drugi przypadek wynika niejako z pierwszego. Gdy opór ścieżki jest zbyt duży
 		\includegraphics[width=11cm]{img/board_layouts/mainboard_visualization_bottom.png}
 	}
 	
-	\caption{Wygląd dolnej warstwy płytki urządzenia lokalizującego oraz jej wizualizacja}
+	\caption{Wygląd dolnej warstwy płytki urządzenia lokalizującego oraz jej wizualizacja. \\ Źródło: Twórczość własna}
 	\label{fig:image_mainboard_bottom_board}
 \end{figure}

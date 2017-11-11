@@ -1,9 +1,8 @@
 \section{Zakres pracy}
 \label{project_sketch}
-Celem pracy było zaprojektowanie, wykonanie i oprogramowanie urządzenia stanowiącego dodatkowe zabezpieczenie antykradzieżowe pojazdu w postaci lokalizatora wykorzystującego system GNSS  (ang. Global Navigation Satellite System) oraz GSM (ang. Global System for Mobile Communications), a także całego systemu informatycznego, który pozwoliłby na obsłużenie pozyskanych danych. W jego skład wchodzą:
+Celem pracy było zaprojektowanie, wykonanie i oprogramowanie urządzenia stanowiącego dodatkowe zabezpieczenie antykradzieżowe pojazdu i zdolnego analizować styl jazdy kierowcy, w postaci lokalizatora wykorzystującego system GNSS (\textit{ang. \textbf{G}lobal \textbf{N}avigation \textbf{S}atellite \textbf{S}ystem}) oraz GSM (\textit{ang. \textbf{G}lobal \textbf{S}ystem for \textbf{M}obile Communications}), a także całego systemu informatycznego, który pozwoliłby na obsłużenie pozyskanych danych. W jego skład wchodzą:
 
 \begin{itemize}
-\item Aplikacja mobilna na telefon z systemem operacyjnym Android.
 \item Strona WWW, umożliwiająca zdalny podgląd danych z przypisanych do użytkownika urządzeń.
 \item Aplikacja serwerowa, która obsługuje zapytania użytkownika oraz zapisująca napływające dane do bazy danych SQLite.
 \end{itemize}
@@ -16,9 +15,9 @@ Do dodatkowych wymagań stawianych urządzeniu należą:
 \item Niewielkie wymiary w celu umożliwienia łatwego ukrycia urządzenia w pojeździe. 
 \end{itemize}
 
-Moduł umożliwia działanie w dwóch trybach. Pierwszy z nich polega na cyklicznym wysyłaniu na serwer pozycji samochodu w trakcie ruchu wraz z m.in. jego prędkością i przyspieszeniem. Dzięki temu możliwy jest zdalny podgląd stylu jazdy kierowcy, co ułatwia sprawowanie kontroli nad flotą pojazdów. Ponadto, dane te zapisywane są również w pamięci nieulotnej urządzenia,  co pozwala na ograniczenie kosztów związanych z transmisją bezprzewodową i posiadaniem karty SIM od operatorów GSM. 
+Moduł umożliwia działanie w dwóch trybach. Pierwszy z nich polega na cyklicznym wysyłaniu na serwer pozycji samochodu w trakcie ruchu wraz z m.in. jego prędkością i przyspieszeniem. Dzięki temu możliwy jest zdalny podgląd stylu jazdy kierowcy, co ułatwia sprawowanie kontroli nad flotą pojazdów. Ponadto, dane te zapisywane są również w pamięci nieulotnej urządzenia, co pozwala na ograniczenie kosztów związanych z transmisją bezprzewodową i posiadaniem karty SIM od operatorów GSM. 
 
 Drugi tryb uaktywnia się w trakcie postoju i stanowi system alarmowego powiadamiania właściciela pojazdu o nieautoryzowanym jego przemieszczeniu w przypadku kradzieży.
 
-W celu zapewnienia bezpieczeństwa, postanowiono rozbić projekt na dwa urządzenia. Jedno z nich – płytka główna stanowi rdzeń systemu, umożliwiający lokalizację pojazdu oraz wysyłanie danych na serwer. Drugi moduł stanowi układ deaktywujący, którego zadaniem jest dezaktywacja trybu alarmu po odpaleniu samochodu przez upoważnioną do tego osobę. Obie płytki komunikują się ze sobą poprzez protokół Bluetooh Low Energy, zapewniający energooszczędną wymianę danych, co pozwoli na zasilenie układu dezaktywującego z niewielkiej baterii i jego nieprzerwaną pracę nawet przez kilka lat bez konieczności wymiany źródła zasilania. 
-Ponadto, aby umożliwić  bezpieczną transmisję niezbędne jest zastosowanie szyfrowania komunikacji. W celu eliminacji ryzyka podsłuchania procesu wymiany klucza szyfrującego, oba urządzenia zostały wyposażone w moduł NFC (ang. Near Field Communication), zapewniającego bezkontaktową komunikację na odległość do 5 cm.
+W celu zapewnienia bezpieczeństwa, postanowiono rozbić projekt na dwa urządzenia. Jedno z nich – płytka lokalizatora, stanowi rdzeń systemu umożliwiający lokalizację pojazdu oraz wysyłanie danych na serwer. Drugi moduł stanowi układ deaktywujący, którego zadaniem jest wyłączenie trybu alarmu po odpaleniu samochodu przez upoważnioną do tego osobę. Obie płytki komunikują się ze sobą poprzez protokół Bluetooh Low Energy, zapewniający energooszczędną wymianę danych. Pozwoli to na zasilenie układu deaktywującego z niewielkiej baterii i jego nieprzerwaną pracę nawet przez kilka lat bez konieczności wymiany źródła zasilania. 
+Ponadto, aby umożliwić  bezpieczną transmisję niezbędne jest zastosowanie szyfrowania komunikacji. W celu eliminacji ryzyka podsłuchania procesu wymiany klucza szyfrującego, oba urządzenia zostały wyposażone w moduł NFC (\textit{ang. \textbf{N}ear \textbf{F}ield \textbf{C}ommunication}), zapewniającego bezkontaktową komunikację na odległość do 5 cm.
