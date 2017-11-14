@@ -25,3 +25,26 @@ Wszystkie z powyższych protokołów zostały pokrótce opisane, a następnie kr
 \input{chapters/Theory/Ble}
 
 \input{chapters/Theory/NFC}
+
+\clearpage
+\section{Podsumowanie}
+
+We wcześniejszych podrozdziałach dokonano krótkiej analizy każdego z protokołów i interfejsów wykorzystanych w pracy. Niniejszy podrozdział stanowi ich podsumowanie ze wskazaniem najważniejszych cech, ograniczeń i możliwości wykorzystania. Z rozważań wykluczono jednakże protokół NMEA 0183 ze względu na fakt, iż jest to jedynie narzucony przez producentów modułów GPS standard komunikacji.
+
+\begin{table}[H]
+\centering
+\caption{Podsumowanie cech systemów i protokołów GSM, GPS, BLE oraz NFC.\\ Źródło: Twórczość własna}
+\label{table:table_nmea_messages}
+\begin{tabular}{| p{2.5cm} | p{3.5cm} | p{3cm} | p{3cm} | p{3.5cm} |}
+\hline
+\textbf{Parametr} &  \textbf{GSM} & \textbf{GPS}	& \textbf{BLE} & \textbf{NFC} \\ \hline	
+\textbf{Właściwości} & - Ogromny zasięg, dzięki rozbudowanej sieci stacji naziemnych & - Zasięg globalny & - Średni zasięg (do 50 m) & - Bardzo bliski zasięg (do 10 cm) \\
+			& - Możliwość odbioru i transmisji & - Tylko do odczytu & - Możliwość odbioru i transmisji & - Możliwość odbioru i transmisji \\
+			& - Prędkość rzędu 57.6 kb/s (odbiór) i 14.5 kb/s (transmisja) & - 50 bit/s & - Około 125 kb/s & - Około 106 kb/s \\
+			& - Wysoki pobór pradu (w szczycie do 1.5 A) & - Średni pobór prądu (ok. 30 mA w trakcie śledzenia pozycji) & - Niski pobór prądu (ok. 7 - 14 mA w trakcie transmisji) & - Pobór energii rzędu 100 mA w trybie inicjatora, 0 mA w trybie pasywnym \\ \hline
+\textbf{Możliwości wykorzystania} & - Rozmowy głosowe & - Odczyt lokalizacji & - Energooszczędna transmisja danych & - Bezpieczna, bezkontaktowa transmisja danych \\
+						& - Wiadomości SMS & - Bardzo dokładny odczyt prędkości & & - Parowanie urządzeń \\
+						& - Dostęp do internetu & - Bardzo dokładne źródło czasu & & - Wymiana kluczy szyfrujących \\ \hline
+\end{tabular}
+\end{table}
+
