@@ -1,1 +1,99 @@
 \section{Strona internetowa}
+\lstset{language=HTML, inputencoding=utf8, breaklines=true}
+
+Ostatnim elementem systemu opisywanego w tej pracy jest strona interetowa. Dzięki niej, możliwy staje się zdalny i czytelny podgląd danych, które napływają praktycznie w czasie rzeczywistym. Z tego względu stanowi ona równie istotną część pracy co pozostałe. Dzięki wykorzystaniu strony internetowej, możliwe staje się stworzenie konta użytkownika, przypisanie do niego urządzeń, a następnie podgląd tras - zarówno aktualnie przebywanej jak i historycznych wraz z ich parametrami, zapisanymi na serwerze.
+
+Szkielet strony internetowej został zaprojektowany w języku HTML (\textit{ang. \textbf{H}yper\textbf{t}ext \textbf{M}arkup \textbf{L}anguage}), natomiast jej część funkcjonalna przy użyciu języka \textit{JavaScript}. Jest to język skryptowy, wykorzystywany głównie w przeglądarkach i charakteryzuje się tym, że jest jednowątkowy.
+
+Dzięki wykorzystaniu JavaScript, możliwe staje się dodanie wielu funkcjonalności do struktury strony internetowej, które stanowią jej połączenie ze światem zewnętrznym, oraz umożliwiają wykorzystanie wielu efektownych rozwiązań wizualnych, jak na przykład animowane przewijanie strony, wyskakujące okienka czy interaktywne wykresy.
+
+W niniejszej pracy, dzięki wykorzystaniu JavaScript możliwe stało się połączenie strony internetowej z bazą danych w celu użycia wymienionych w poprzednim podrozdziale funkcji.  
+
+Na rysunkach \ref{fig:image_soft_website_login}, \ref{fig:image_soft_website_register_user}, \ref{fig:image_soft_website_main_page} oraz \ref{fig:image_soft_website_track_map} przedstawiono podstawowe ekrany: logowania, rejestracji użytkownika, ekran główny oraz ekran trasy.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm]{img/software/website/login_window.png}
+	\caption{Strona logowania. Źródło: Twórczość własna}
+	\label{fig:image_soft_website_login}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=17cm]{img/software/website/register_user.png}
+	\caption{Ekran rejestracji użytkownia. Źródło: Twórczość własna}
+	\label{fig:image_soft_website_register_user}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=18cm]{img/software/website/main_screen.png}
+	\caption{Strona główna. Źródło: Twórczość własna}
+	\label{fig:image_soft_website_main_page}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=18cm]{img/software/website/main_screen.png}
+	\caption{Okno trasy. Źródło: Twórczość własna}
+	\label{fig:image_soft_website_track_map}
+\end{figure}
+
+Ekran trasy przedstawia poszczególne próbki lokalizacji, należące do trasy, na mapie od firmy Google. W tym celu, niezbędne staje się wykorzystanie API producenta dla modułu Google Maps. Pozwala ono na wyświetlenie mapy, przybliżanie i oddalanie, odnalezienie lokalizacji, naniesienie znaczników (w tym autorskich - zdefiniowanych w formacie grafiki wektorowej - \textit{.svg}). Ponadto, dzięki zastosowaniu modułu \textit{Info Bubble}, możliwe staje się wyświetlenie na mapie interaktywnego okienka informacyjnego, powiązanego z konkretnym znacznikiem geolokalizacyjnym.
+
+Aby wykorzystać API Google Maps, należy zarejestrować aplikację na stronie \url{https://developers.google.com/maps/documentation/javascript/get-api-key}. Po rejestracji, do projektu przypisany zostanie klucz, który należy zawrzeć wewnątrz zapytania HTTP wykonywanego przy ładowaniu strony, umożliwiającego ściągnięcie z internetu plików źródłowych zawierających kod obsługujący mapy. Przedstawiono to na listingu \ref{listing_google_map_api}.
+
+\begin{lstlisting}[label=listing_google_map_api, caption=Fragment kodu pozwalający na użycie API Google Maps]
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=TWOJ_KLUCZ_API&callback=initMap" type="text/javascript"></script>
+\end{lstlisting}
+
+Na listingach \ref{listing_http_api_post} oraz \ref{listing_http_api_get} przedstawiono fragmenty kodu, które umożliwiają wysłanie zapytań HTTP typu POST oraz GET. Stanowią one podstawową formę komunikacji między stroną internetową, a serwerem bazodanowym.
+
+\begin{lstlisting}[label=listing_http_api_post, caption=Fragment kodu pozwalający na użycie zapytań HTTP typu POST]
+function http_post(_url, _arguments, _successCallback)
+{
+  var _args = JSON.stringify(_arguments);
+  // Send the data using post
+  $.ajax({
+    url: _url,
+    type: "POST",
+    dataType: "json", // expected format for response
+    contentType: "application/json", // send as JSON
+    data: _args ,
+
+    complete: function() {
+      //called when complete
+    },
+    success: function(msg) {
+      _successCallback(msg);
+    },
+    error: errorCallback,
+    });
+}
+\end{lstlisting}
+
+\clearpage
+
+\begin{lstlisting}[label=listing_http_api_get, caption=Fragment kodu pozwalający na użycie zapytań HTTP typu GET]
+function http_get(_url, _arguments, _successCallback)
+{
+  //var _args = JSON.stringify(_arguments);
+  var _args = _arguments;
+  // Send the data using post
+  $.ajax({
+    url: _url,
+    type: "GET",
+    dataType: "json", // expected format for response
+    contentType: "application/json", // send as JSON
+    data: _args ,
+
+    complete: function() {
+      //called when complete
+    },
+    success: function(msg) {
+      _successCallback(msg);
+    },
+    error: errorCallback,
+    });
+}
+\end{lstlisting}
