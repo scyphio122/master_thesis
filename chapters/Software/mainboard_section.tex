@@ -111,6 +111,10 @@ Jak widać na rysunku \ref{fig:image_soft_mainboard_main_alghoritm}, po uruchomi
 
 Pierwszym z nich jest wykrywanie ruchu pojazdu. Zostało to zrealizowane poprzez wykorzystanie funkcjonalności akcelerometru - wybudzenia w razie wykrycia przyspieszenia powyżej progu wynoszącego 1.2 $\frac{m}{s^2}$ i utrzymującego się przez więcej niż 1 sekundę. Jest on cykliczne, co 5 sekund, odpytywany, czy nie nastąpiło takie zdarzenie. Jeśli nie nastąpiło, cykl się powtarza. Jeśli wykryto ruch, zadanie okresowego sprawdzania ruchu jest wyłączane, natomiast do kolejki zadań ładowane są 3 najważniejsze z punktu widzenia całego systemu - zadanie alarmu, skanowania w poszukiwaniu \textit{Key Tag'a} oraz cyklicznego pobierania próbek lokalizacji. Pierwsze z nich, stanowi zegar, który odlicza 30 sekund. Jeśli w tym czasie, alarm zostanie deaktywowany poprzez nawiązanie połączenia z urządzeniem dezaktywującym i nadanie odpowiedniego komunikatu, wówczas zadanie zostaje anulowane i jedynym cyklicznym zadaniem jest próbkowanie lokalizacji. W przeciwnym razie, uruchamiane jest zadanie cyklicznego, co 10 minutowego powiadamiania właściciela o lokalizacji pojazdu poprzez wiadomości SMS. Okres ten został dobrany w ten sposób, aby nie wyczerpać za szybko śródków na koncie karty SIM, użytej w module, a przy tym uzyskać rozsądną częstotliwość wysyłania SMS'ów. Zadanie to można anulować, w przypadku fałszywego alarmu, wysyłając odpowiednią komendę poprzez SMS z numeru właściciela. 
 
+Pierwszy krok w procesie deaktywacji alarmu jest wykonywany przez płytkę główną. Ze względu na fakt, iż urządzenie powinno być ukryte, nie powinno ono rozgłaszać żadnych pakietów w sposób ciągły, co zminimalizuje jego wykrywalność w aplikacjach skanujących poprzez Bluetooth Low Energy. Z tego powodu, w momencie wykrycia ruchu pojazdu, to ono nawiązuje połączenie z \textit{Key Tag'iem}. W tym celu dokonuje wykrycia urządzeń posiadających odpowiedni zestaw serwisów i charakterystyk. Dla każdego z nich, sprawdza ono jego nazwę. Jeśli urządzenie nazywa się \textit{"KeyTag"}, wówczas dopiero nawiązywane jest z nim połączenie. W trakcie połączenia, urządzenie peryferyjne musi przesłać kod deaktywujący (wygenerowany w trakcie parowania), zaszyfrowany kluczem głównym (wylosowanym przez płytkę główną w trakcie parowania). Jeśli zostanie on poprawnie odszyfrowany, alarm jest deaktywowany. W przeciwnym razie - połączenie zostaje zerwane.
+
+\clearpage 
+
 Ponadto, równolegle, niezależnie od tego czy alarm został deaktywowany czy nie, uruchamiane jest zadanie cyklicznego pobierania próbek lokalizacji. Okres wynosi 10 sekund i w momencie próbkowania pobierane są dane takie jak:
 
 \begin{itemize}
@@ -125,8 +129,9 @@ Ponadto, równolegle, niezależnie od tego czy alarm został deaktywowany czy ni
 \item Czas pobrania próbki
 \end{itemize}
 
-Na rysunku \ref{fig:image_soft_mainboard_control_flow} przedstawiono diagram interakcji, ktory pokazuje przeływ sterowania pomiędzy zadaniami. 
+Na etapie testów, okazało się, że parametr określający azymut pojazdu w momencie poboru próbki jest praktycznie bezużyteczny, ze względu na znaczące wahania.
 
+Na rysunku \ref{fig:image_soft_mainboard_control_flow} przedstawiono diagram interakcji, ktory pokazuje przeływ sterowania pomiędzy zadaniami. 
 
 
 \begin{figure}[H]

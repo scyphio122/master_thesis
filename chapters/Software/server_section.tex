@@ -1,8 +1,29 @@
 \section{Aplikacja serwerowa}
 
-Kolejnym etapem pracy było stworzenie aplikacji serwerowej, która obsługiwałaby zapytania HTTP \textit{ang. \textbf{H}yper \textbf{T}ext \textbf{T}ransfer \textbf{P}rotocol} użytkownika, a także bazę danych.
+Kolejnym etapem pracy było zaprogramowanie aplikacji serwerowej, która obsługiwałaby zapytania HTTP (\textit{ang. \textbf{H}yper \textbf{T}ext \textbf{T}ransfer \textbf{P}rotocol}) użytkownika oraz zapytania do bazy danych. Aplikacja została napisana przy pomocy framework'a Qt. Jest to ostatnimi czasy jedno z najpopularniejszych zbiorów bibliotek do języka C++. Wybór środowiska nastąpił z kilku powodów. Pierwszym i jednocześnie najważniejszym z nich jest wbudowany moduł obsługi relacyjnych baz danych. Dzięki temu, wykorzystując kilka wysokopoziomowych funkcji można szybko operować na danych. Ponadto, aplikacja napisana w C++ statystycznie zapewnia większą wydajność niż napisana w języku Java. Ostatnim z powodów jest wieloletnia znajomość tej biblioteki przez autora pracy.
 
+Aplikacja składa się z dwóch głównych modułów: manager'a bazy danych oraz serwera HTTP.
 
+Baza danych składa się z 4 tabel. Są to :
+
+\begin{itemize}
+\item Tabela użytkowników
+\item Tabela urządzeń
+\item Tabela tras
+\item Tabela próbek
+\end{itemize}
+
+Jako silnik bazodanowy, zdecydowano się wykorzystać system SQLite. Stanowi on uproszczony, lecz bardzo wydajny sterownik opierający się na zapytaniach SQL, służący do obsługi relacyjnych baz danych. Kolejną zaletą jest fakt, iż jest on obsługiwany wewnętrznie przez bibliotekę Qt.
+Relacje pomiędzy nimi zostały przedstawione na rysunku \ref{fig:image_soft_db_relations}.
+
+Założenia struktury bazy danych są następujące:
+
+\begin{itemize}
+\item Każdy zarejestrowany użytkownik może posiadać więcej niż jedno urządzenie
+\item Każde urządzenie może otrzymać opisującą je nazwę
+\item Do każdego z urządzeń może być przypisana więcej niż jedna trasa
+\item Trasa posiada wpisy o miejscach i czasach ich rozpoczęcia i zakończenia
+\end{itemize}
 
 \begin{figure}[H]
 	\centering
@@ -11,3 +32,27 @@ Kolejnym etapem pracy było stworzenie aplikacji serwerowej, która obsługiwał
 	\\Źródło: Twórczość własna}
 	\label{fig:image_soft_db_relations}
 \end{figure}
+
+Jako serwer HTTP zastosowano bibliotekę QttpServer użytkownika supamii\cite{qttpserver}. Została ona napisana pod licencją MIT, co zapewnia swobodę użytkowania i modyfikacji kodu źródłowego, a nawet komercyjne zastosowanie pod warunkiem umieszczenia oryginalnych warunków licencyjnych i informacji o autorze. Biblioteka umożliwia komunikację poprzez zarówno zapytania HTTP typu GET jak i POST. 
+
+Przy pomocy aplikacji, można wykonać następujące operacje:
+
+\begin{itemize}
+\item Logowanie użytkownika
+\item Wylogowywanie użytkownika
+\item Rejestracja nowego użytkownika
+\item Pobieranie danych o użytkowniku z bazy danych
+\item Zmianę danych użytkownika
+\item Zmianę hasła użytkownika
+\item Kasowanie użytkownika
+\item Dodawanie urządzenia do konta użytkownika
+\item Pobieranie listy urządzeń przypisanych do użytkownika
+\item Pobieranie informacji o urządzeniu
+\item Usuwanie urządzenia z bazy danych
+\item Dodawanie nowej trasy do urządzenia
+\item Pobieranie listy tras przypisanej do urządzenia
+\item Pobieranie informacji o trasie
+\item Dodawanie próbek do trasy
+\item Zakończanie trasy
+\item Usuwanie trasy
+\end{itemize}
