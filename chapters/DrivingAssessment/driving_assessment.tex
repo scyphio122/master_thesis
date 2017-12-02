@@ -1,1 +1,25 @@
 \chapter{Analiza stylu jazdy}
+
+\section{Wstęp}
+
+Niniejszy rozdział stanowi opis dodatkowej funkcjonalności oferowanej w zaprojektowanym w pracy urządzeniu. Zawarte są w nim autorskie badania, krótki opis istniejących rozwiązań oraz propozycja własnego algorytmu wraz z jego rezultatami. 
+
+Funkcjonalność opisująca styl jazdy kierowcy pojazdu jest niezwykle istotna z punktu widzenia jednej z grup docelowych, do których kierowane jest urządzenie - firm posiadających flotę pojazdów. Dzieje się tak, ze względu na rosnące koszty prowadzenia działalności oraz użytkowania pojazdów (wzrost cen paliwa, części zamiennych i usług, a także niezbędnych ubezpieczeń OC) co wprowadza konieczność ograniczenia zbędnych wydatków. Można do nich zaliczyć nadmiernie szybkie zużycie części eksploatacyjnych jak na przykład klocki hamulcowe czy opony, a także koszty związane z wypadkami losowymi takimi jak stłuczki. W przypadku firm, są one często generowane przez nieodpowiedzialnych pracowników, którzy nie szanują własności pracodawcy i prowadzą w sposób lekkmyślny, agresywny. Ograniczenie tego procederu jest o tyle problematyczne, iż trudno o jednoznaczne dowody winy pracownika - kierowcy. Odpowiadając na tę potrzebę rynkową, opisywane w tej pracy system umożliwia nie tylko ocenę stylu jazdy na bieżąco i jej zdalny podgląd, lecz także zapisywanie historii ocen, przypisanych do punktów trasy przebytej przez pracownika wraz z dodatkowymi parametrami, opisywanymi we wcześniejszych rozdziałach. Pozwala to nie tylko na wskazanie, iż pracownik jechał nadto agresywnie, lecz także informację kiedy i gdzie to nastąpiło.
+
+\section{Badania}
+
+Na ocenę stylu jazdy kierowcy wpływ mają głównie dwa czynniki - prędkość oraz przyspieszenie. Pierwsza z nich niesie informację jak często i o ile kierowca przekraczał limit dopuszczalny prawem. Wykorzystanie tego parametru jest bardzo proste w implementacji, lecz okazuje się kosztowne. W wykorzystywanej w niniejszej pracy bibliotece do obsługi map od firmy Google istnieje moduł drogowy (Google Maps Road API\cite{google_map_road_api}), lecz w wersji darmowej (wprowadzającej limity zapytań) nie jest udostępniona informacja o ograniczeniach prędkości na drogach. Aby z niej skorzystać należy wykupić licencję Premium. Z tego powodu postanowiono zrezygnować z czynnika przekraczania prędkości w zautomatyzowanej ocenie, lecz jej wartość bezwzględną pozostawić do oceny indywidualnej.
+
+Drugim, znacznie ciekawszym parametrem jest przyspieszenie. Jest on o tyle interesujący, ponieważ ma wpływ nie tylko na bezpieczeństwo, lecz także w dużej mierze na ponoszone przez pracodawcę koszty. Znaczne przyspieszenie powoduje:
+
+\begin{itemize}
+\item Zużycie opon w przypadku zerwania przyczepności przy ruszaniu
+\item Oderwanie odważników wyważających koła, co ma wpływ na komfort jazdy ale również na elementy zawieszenia pojazdu (drgania)
+\item Zużycie sprzęgła w przypadku agresywnego ruszania
+\item Duże obciążenie elementów przeniesienia napędu
+\item Szybsze zużycie elementów wewnętrznych silnika
+\item Wysokie zużycie paliwa 
+\item Zużycie klocków, przegrzanie i wygięcie tarcz hamulcowych w przypadku gwałtownego hamowania
+\item Możliwość wejścia w poślizg i utraty kontroli nad pojazdem co może skutkować uderzeniem w barierki lub inne pojazdy
+\end{itemize}
+
