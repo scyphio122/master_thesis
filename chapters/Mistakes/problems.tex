@@ -57,7 +57,7 @@ gdzie $A_{min}$ jest wartością przyspieszenia kompensowaną przez pojedynczą 
 Z tego powodu postanowiono zrezygnować z wykorzystania sprzętowej kompensacji i zastosować programową. W tym celu, w trakcie inicjalizacji urządzenia przez sekundę zbierane są próbki przyspieszenia, przy założeniu bezruchu pojazdu. Ich wartości w osiach X, Y i Z są uśredniane, a następnie odejmowane od każdej zebranej próbki w przyszłości. Dzięki temu, zmierzony doświadczalnie błąd kompensacji wynosił maksymalnie:
 
  \begin{equation}
-A_{min} = 5 \cdot 19.62\frac{m}{s^2}/2^15 \approx 0.003 \frac{m}{s^2}
+A_{min} = 5 \cdot 19.62\frac{m}{s^2}/{2^{15}} \approx 0.003 \frac{m}{s^2}
 \end{equation}
 
 Wynik ten jest dwa rzędy wielkości lepszy niż przy sprzętowej kompensacji.
