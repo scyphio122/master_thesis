@@ -27,14 +27,14 @@ Na rysunkach \ref{fig:image_soft_website_login}, \ref{fig:image_soft_website_reg
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=18cm]{img/software/website/main_screen.png}
+	\includegraphics[height=23cm, width=16cm]{img/software/website/main_screen.png}
 	\caption{Strona główna. Źródło: Twórczość własna}
 	\label{fig:image_soft_website_main_page}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=18cm]{img/software/website/track_modal.png}
+	\includegraphics[height=23cm, width=16cm]{img/software/website/track_modal.png}
 	\caption{Okno trasy. Źródło: Twórczość własna}
 	\label{fig:image_soft_website_track_map}
 \end{figure}
@@ -48,52 +48,3 @@ Aby wykorzystać API Google Maps, należy zarejestrować aplikację na stronie \
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=TWOJ_KLUCZ_API&callback=initMap" type="text/javascript"></script>
 \end{lstlisting}
 
-Na listingach \ref{listing_http_api_post} oraz \ref{listing_http_api_get} przedstawiono fragmenty kodu, które umożliwiają wysłanie zapytań HTTP do komunikacji między stroną internetową, a serwerem bazodanowym.
-
-\begin{lstlisting}[label=listing_http_api_post, caption=Fragment kodu pozwalający na użycie zapytań HTTP typu POST]
-function http_post(_url, _arguments, _successCallback)
-{
-  var _args = JSON.stringify(_arguments);
-  // Send the data using post
-  $.ajax({
-    url: _url,
-    type: "POST",
-    dataType: "json", // expected format for response
-    contentType: "application/json", // send as JSON
-    data: _args ,
-
-    complete: function() {
-      //called when complete
-    },
-    success: function(msg) {
-      _successCallback(msg);
-    },
-    error: errorCallback,
-    });
-}
-\end{lstlisting}
-
-
-\begin{lstlisting}[label=listing_http_api_get, caption=Fragment kodu pozwalający na użycie zapytań HTTP typu GET]
-function http_get(_url, _arguments, _successCallback)
-{
-  //var _args = JSON.stringify(_arguments);
-  var _args = _arguments;
-  // Send the data using post
-  $.ajax({
-    url: _url,
-    type: "GET",
-    dataType: "json", // expected format for response
-    contentType: "application/json", // send as JSON
-    data: _args ,
-
-    complete: function() {
-      //called when complete
-    },
-    success: function(msg) {
-      _successCallback(msg);
-    },
-    error: errorCallback,
-    });
-}
-\end{lstlisting}
