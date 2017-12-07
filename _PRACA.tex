@@ -1,4 +1,4 @@
-\documentclass[a4paper, twopage, 12pt]{report}
+\documentclass[a4paper, twoside, 12pt]{report}
 \usepackage{latexsym}
 \usepackage[MeX]{polski}
 \usepackage[utf8]{inputenc}
@@ -14,26 +14,38 @@
 \usepackage{url}
 \usepackage[font=it, justification=centering]{caption}
 \pagestyle{fancy}
+\usepackage{setspace} % ustawienie interlinii
 \usepackage{listings}
 
 \raggedbottom
 
+%zmiana stylu z kontynuacja numerowania
+\newcounter{savepage}
+\newcommand{\setpagenumberingtype}[1]{%
+	\setcounter{savepage}{\arabic{page}}%
+	\pagenumbering{#1} %
+	\setcounter{page}{\thesavepage}%
+}
+
 
 \fancyhead{} % clear all header fields
-\fancyhead[LE, RO]{\thepage}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
 \fancyhead[RE]{\bfseries\nouppercase{\leftmark}}      % Chapter in the right on even pages
 \fancyhead[LO]{\bfseries\nouppercase{\rightmark}\chaptermark}     % Section in the left on odd pages
 \fancyfoot{} % clear all footer fields
 \renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[LE, RO]{\bfseries \thepage} % except the center
+\fancyheadoffset[]{0.4pt}
 
-\fancyheadoffset[]{0pt}
 
 \fancypagestyle{plain}{%
 \fancyhf{} % clear all header and footer fields
-\fancyfoot[C]{\bfseries \thepage} % except the center
-\renewcommand{\headrulewidth}{0pt}
+\fancyhead[RE]{\bfseries\nouppercase{\leftmark}}      % Chapter in the right on even pages
+\fancyfoot[LE, RO]{\bfseries \thepage} % except the center
+\renewcommand{\headrulewidth}{0pt} %
 \renewcommand{\footrulewidth}{0pt}}
+
+\fancyfoot[LE, RO]{\bfseries \thepage} % except the center
 
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3.7cm, bottom=2.5cm, headsep=0.9cm, headheight=16pt]{geometry}
 \frenchspacing

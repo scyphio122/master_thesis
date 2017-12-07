@@ -1,49 +1,52 @@
 \bibliographystyle{unsrt}
 \nocite{*} %wszystkie wpisy trafią do bibliografii
 \lstset{language=C, tabsize=2,  basicstyle=\footnotesize\ttfamily, keywordstyle=\underbar}
+
 \input{_tytulowa}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \clearpage
 \phantomsection
 
+\setpagenumberingtype{gobble} % Remove page numbers (and reset to 1)
+
 \input{streszczenie}
 \clearpage
 \addcontentsline{toc}{chapter}{Spis treści}
+\clearpage
 \tableofcontents
 \clearpage
-\phantomsection
-\addcontentsline{toc}{chapter}{Spis rysunków}
-\listoffigures
-\addcontentsline{toc}{chapter}{Spis tabel}
-\listoftables
-\clearpage
+
+\raggedbottom
+\setpagenumberingtype{arabic} % kontynuowanie numerowania w stylu arabskim
 
 \input{chapters/Introduction/wstep}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/Theory/teorethical_introduction}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/Schematic/schematic}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/Board/board}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/communication_security}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/Software/software}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/DrivingAssessment/driving_assessment}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/Mistakes/problems}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \input{chapters/Summary/summary}
-\clearpage{\pagestyle{empty}\cleardoublepage}
+%\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\setpagenumberingtype{gobble} % Remove page numbers (and reset to 1)
 
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliografia}
@@ -54,3 +57,11 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Wykaz skrótów}
 \input{wykaz}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures
+\addcontentsline{toc}{chapter}{Spis tabel}
+\listoftables
+
+\chapter*{Załączniki}
