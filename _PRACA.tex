@@ -16,6 +16,7 @@
 \pagestyle{fancy}
 \usepackage{setspace} % ustawienie interlinii
 \usepackage{listings}
+\usepackage{array}
 
 \raggedbottom
 
@@ -52,6 +53,9 @@
 \linespread{1.3}
 \usepackage{hyperref} % musi być na końcu
 \hypersetup{pdfborder={0 0 0 0}}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
 \begin{document}
 \input{_struktura}
 \end{document}

@@ -53,7 +53,7 @@ Testy rozpoczęto od najniższej dostępnej częstotliwości próbkowania - 12.5
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=16cm]{img/driving_analysis/12_5Hz_Przyspieszanie.png}
+	\includegraphics[width=12cm]{img/driving_analysis/12_5Hz_Przyspieszanie.png}
 	\caption{Wykresy przyspieszenia i zrywu w trakcie przyspieszania przy częstotliwości próbkowania 12.5 Hz.
 	\\Źródło: Twórczość własna}
 	\label{fig:image_driving_analysis_test_12Hz}
@@ -65,7 +65,7 @@ Następnym krokiem badań było sprawdzenie wpływu zwiększenia częstotliwośc
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=18cm]{img/driving_analysis/stabilna_26.png}
+	\includegraphics[width=15cm]{img/driving_analysis/stabilna_26.png}
 	\caption{Wykresy przyspieszenia i zrywu w trakcie stabilnej jazdy przy częstotliwości próbkowania 26 Hz.
 	\\Źródło: Twórczość własna}
 	\label{fig:image_driving_analysis_test_26Hz}
@@ -73,7 +73,7 @@ Następnym krokiem badań było sprawdzenie wpływu zwiększenia częstotliwośc
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=18cm]{img/driving_analysis/Ostre_przyspieszenie_26Hz.png}
+	\includegraphics[width=15cm]{img/driving_analysis/Ostre_przyspieszenie_26Hz.png}
 	\caption{Wykresy przyspieszenia i zrywu w trakcie agresywnego przyspieszania i hamowania przy częstotliwości próbkowania 26 Hz.
 	\\Źródło: Twórczość własna}
 	\label{fig:image_driving_analysis_test_acc_26Hz}
@@ -110,18 +110,38 @@ Na powyższym obrazku widać, że dane są już kompletne. Z tego powodu zdecydo
 	\label{fig:image_driving_analysis_test_acc_light_hard_lane_52Hz}
 \end{figure}
 
+Obserwując powyższe wykresy można zauważyć, że są one na tyle dokładne, iż widać na nich moment zmiany biegu (nagły, krótkotrwały spadek przyspieszenia w osi Y). Można również dostrzec, że wartości przyspieszeń w przypadku łagodnego i agresywnego przyspieszania nie różnią się znacząco, w przeciwieństwie do ich chwilowych zmian, opisywanych jako zryw. Jest to spowodowane rozbieżnością stopni przełożeń w skrzyni biegów. Innymi słowy, na niskich biegach pojazd uzyskuje większe przyspieszenie niż na wysokich. Oznacza to, że sama wartość przyspieszenia nie może być głównym czynnikiem składowym oceny stylu jazdy.
 
-\clearpage
-Na podstawie danych przedstawionych na powyższych rysunkach otrzymano następujące wnioski:
+Kolejnym wnioskiem jest fakt, iż w przypadku łagodnej zmiany pasa pojazd zwalniał (ujemne przyspieszenie w osi Y), a w przypadku agresywnej zmiany pasa - przyspieszał (dodatnie przyspieszenie w osi Y). Informacja ta jest bardzo ciekawa, gdyż wskazuje na korelację pomiędzy stylem jazdy w osiach X i Y przy zmianie pasa, co dodatkowo powoduje wzmocnienie jego negatywnej lub pozytywnej oceny.
+
+W celu poprawienia widoczności zależności ukrytej w zrywach w zależności od stylu jazdy, parametry te zestawiono na histogramach przedstawionych na rysunkach \ref{fig:image_histogram_acceleration_52Hz} i \ref{fig:image_histogram_changing_lane_52Hz}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{img/driving_analysis/histogram_zestawienie_ostre_lagodne_ruszanie.png}
+	\caption{Zestawienie histogramów zrywu w osiach X i Y w trakcie łagodnego i agresywnego ruszania przy częstotliwości próbkowania 52 Hz.
+	\\Źródło: Twórczość własna}
+	\label{fig:image_histogram_acceleration_52Hz}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm]{img/driving_analysis/histogram_zestawienie_zmiana_pasa.png}
+	\caption{Zestawienie histogramów zrywu w osiach X i Y w trakcie łagodnej i agresywnej zmiany pasa przy częstotliwości próbkowania 52 Hz.
+	\\Źródło: Twórczość własna}
+	\label{fig:image_histogram_changing_lane_52Hz}
+\end{figure}
+
+Jak widać, w przypadku jazdy agresywnej, histogramy opisujące ruch w osi głównej (dla zmiany pasa ruchu - oś X, dla przyspieszania - oś Y) ulegają spłaszczeniu i rozszerzeniu. Oznacza to, że mniej próbek uzyskuje niską wartość zrywu, a więcej wysoką w porówaniu do histogramu dla jazdy łagodnej. Stanowi to potwierdzenie tezy o wzroście wariancji zrywu wraz ze wzrostem poziomu agresywności stylu jazdy.
+
+Podsumowując, na podstawie danych przedstawionych na powyższych rysunkach otrzymano następujące wnioski:
 
 \begin{itemize}
 \item Dane nie posiadają znaczącego czynnika losowego w postaci szumu, zatem nie jest konieczne ich dodatkowe filtrowanie
 \item Wartość i rozkład przyspieszenia w obrębie okna czasowego zbierania próbek bardzo wyraźnie informuje o rodzaju wykonywanego manewru.
 \item Wartość zrywu jest w przybliżeniu symetryczna względem wartości zero. Oznacza to, że jego średnia wartość w całym zakresie próbek jest bliska zeru.
-\item Wraz ze wzrostem poziomu agresji w stylu jazdy, wartość wariancji zrywu oraz moduł przyspieszenia średniego rośnie. 
+\item Wraz ze wzrostem poziomu agresji w stylu jazdy, wartość wariancji zrywu oraz moduł przyspieszenia średniego rośnie, przy czym pierwszy parametr wykazuje większą zmienność od drugiego w zależności od stylu jazdy. 
 \end{itemize}
-
-Ostatni wniosek jest szczególnie istotny dla zaproponowanego w niniejszej pracy algorytmu oceny stylu jazdy kierowcy. 
 
 \section{Metoda zastosowana w pracy}
 
@@ -185,7 +205,7 @@ Kolejnym etapem był zjazd w ulicę Marynarską i jazda nią aż do Alei Krakows
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[height=19cm, width=13cm]{img/driving_analysis/test_track_part_3.png}
+	\includegraphics[height=18cm, width=13cm]{img/driving_analysis/test_track_part_3.png}
 	\caption{Trasa próbna nr 1 - trzecia część trasy. Źródło: Twórczość własna}
 	\label{fig:image_driving_analysis_alghoritm_track_1_part_3}
 \end{figure}
@@ -199,4 +219,44 @@ Ostatnia część trasy - przejazd ulicami: Aleja Krakowska, Korotyńskiego i Pr
 	\label{fig:image_driving_analysis_alghoritm_track_1_part_4}
 \end{figure}
 
-Jak widać, dane zgromadzone w bazie danych, przypisane do tej trasy odzwierciedlają sposób jazdy, co dowodzi skuteczności algorytmu.
+Poniżej w celu zwiększenia przejrzystości danych, zestawiono je w tabeli dla przypadków łagodnej oraz agresywnej jazdy.
+
+\begin{table}[H]
+\centering
+\caption{Zestawienie próbek w przypadku jazdy łagodnej oraz agresywnej.\\ Źródło: Twórczość własna}
+\label{table:table_driving_style_light}
+\begin{tabular}{| P{4cm} | P{4cm} | P{4cm} | P{4cm} |}
+\hline
+\textbf{Czas pomiaru} &\textbf{Prędkość w momencie pomiaru} & \textbf{Przyspieszenie średnie z okna pomiarowego}	& \textbf{Ocena stylu jazdy} \\ \hline	
+\multicolumn{4}{|c|}{\textbf{Jazda łagodna}}  \\ \hline	
+04.12.2017 21:30:59	& 33.97	& 0.53 & 100\%	 \\ \hline	
+04.12.2017 21:31:07	& 0.00	& 0.42 & 100\%	 \\ \hline	
+04.12.2017 21:31:27	& 39.97	& 1.45 & 90\%	 \\ \hline	
+04.12.2017 21:31:37 & 68.22	& 0.60 & 90\%	 \\ \hline	
+04.12.2017 21:31:47	& 62.88	& 0.35 & 92\%	 \\ \hline	
+04.12.2017 21:31:57	& 59.00	& 0.24 &	 93\%	 \\ \hline	
+04.12.2017 21:32:17	& 16.84	& 1.14 & 92\%	 \\ \hline	
+04.12.2017 21:32:27	& 48.93	& 0.97 & 74\%	 \\ \hline	
+04.12.2017 21:32:37	& 62.78	& 0.25 &	 88\%	 \\ \hline	
+04.12.2017 21:32:47	& 64.85	& 0.40 & 82\%	 \\ \hline	
+04.12.2017 21:33:07	& 45.58	& 0.43 & 87\%	 \\ \hline	
+04.12.2017 21:33:17	& 9.83	& 1.24 & 99\%	 \\ \hline	
+04.12.2017 21:33:27 & 16.75	& 1.19 & 100\%	 \\ \hline	
+\multicolumn{4}{|c|}{\textbf{Jazda dynamiczna}}  \\ \hline	
+04.12.2017 21:36:07	& 40.16 & 2.18 & 49\%	 \\ \hline	
+04.12.2017 21:36:17	& 68.77 	& 0.58 & 80\%	 \\ \hline	
+04.12.2017 21:36:27	& 72.43	& 0.24 & 49\%	 \\ \hline	
+04.12.2017 21:36:42  & 0.00	& 0.19 & 47\%	 \\ \hline	
+04.12.2017 21:36:47 	& 68.02	& 0.24 & 71\%	 \\ \hline	
+04.12.2017 21:36:57	& 57.57	& 0.38 &	 82\%	 \\ \hline	
+04.12.2017 21:37:17	& 85.47	& 0.83 & 40\%	 \\ \hline	
+04.12.2017 21:37:27	& 81.02	& 0.31 & 83\%	 \\ \hline	
+04.12.2017 21:37:47	& 87.97	& 0.38 &	 49\%	 \\ \hline	
+04.12.2017 21:38:07	& 88.36 & 0.54 & 53\%	 \\ \hline	
+04.12.2017 21:38:17	& 81.36	& 0.66 & 42\%	 \\ \hline	
+04.12.2017 21:38:37	& 0.22	& 0.85 & 100\%	 \\ \hline	
+04.12.2017 21:38:57	& 38.20	& 1.55 & 86\%	 \\ \hline	
+\end{tabular}
+\end{table} 
+
+Jak widać, w przypadku dynamicznego stylu jazdy oceny uległy spadkowi, co dowodzi skuteczności algorytmu.
