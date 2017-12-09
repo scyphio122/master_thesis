@@ -1,29 +1,31 @@
+\thispagestyle{empty}
+\noindent {\Large\textbf{Streszczenie}}\\
 
-
-\chapter*{Streszczenie}
-
-\flushbottom
-
-\noindent {\Large\textbf{Projekt urządzenia do lokalizacji pojazdów w trybie on i off-line}}
+\noindent {\Large\textbf{Projekt urządzenia do lokalizacji pojazdów w trybie on i off-line}}\\
 
 \begin{singlespacing}
 
-Praca ta ma na celu wykonanie systemu informatycznego, służącego do gromadzenia danych o lokalizacji pojazdów, który dodatkowo umożliwiałby dynamiczną analizę i ocenę stylu jazdy kierowców. Bazuje ona na samodzielnie zaprojektowanym, dedykowanym urządzeniu lokalizującym, które wykorzystuje system GPS do lokalizacji oraz system GSM do komunikacji bezprzewodowej dużego zasięgu, a także interfejsy Bluetooth Low Energy i Near Field Communication do komunikacji średniego i bliskiego zasięgu. 
+Celem pracy było zaprojektowanie, wykonanie i oprogramowanie urządzenia stanowiącego dodatkowe zabezpieczenie antykradzieżowe pojazdu, w postaci lokalizatora wykorzystującego system GNSS (\textit{ang. Global Navigation Satellite System}) oraz GSM (\textit{ang. Global System for Mobile Communications}), zdolnego do analizy stylu jazdy kierowcy, a także całego systemu informatycznego, który pozwoliłby na obsłużenie pozyskanych danych. Założeniem jest aby projekt był niezależny od instalacji i czujników dostępnych w samochodzie.\\
 
-Dane są zbierane cyklicznie w niewielkich odstępach czasowych, a następnie wysyłane praktycznie w czasie rzeczywistym do aplikacji serwerowej, które dokonuje ich przetworzenia i umieszcza w bazie danych. W ramach pracy zrealizowano również projekt strony internetowej, umożliwiającej zdalny podgląd danych w każdym momencie. 
+System opisywany w pracy przeznaczony jest głównie dla trzech grup osób. Pierwszą z nich są właściciele firm posiadających flotę pojazdów, prowadzonych przez pracowników. Umożliwia im zdalny podgląd tras przebywanych przez nich, a także syntetyczną informację o sposobie jazdy kierowcy. Drugą kategorię stanowią osoby zainteresowane możliwością zdalnego zlokalizowania pojazdu na wypadek kradzieży, dzięki wykorzystaniu mechanizmu alarmowania poprzez wiadomości SMS. Ostatnia grupa to osoby, które chciałyby poprawić swoje umiejętności ekologicznego i bezpiecznego prowadzenia pojazdów, na podstawie dynamicznej oceny wydawanej przez lokalizator. \\
 
-Ponadto, urządzenie stanowi dodatkowy element zabezpieczający pojazd w razie kradzieży. Ma on bowiem zdolność wykrywania nieautoryzowanego uruchomienia pojazdu, które wyzwala zadanie cyklicznego powiadamiania właściciela o jego lokalizacji. Dokonywane jest to poprzez wysłanie na telefon  wiadomości SMS. 
+W skład systemu wchodzą dwa urządzenia elektroniczne. Jedno z nich służy do lokalizacji pojazdu, ciągłej oceny stylu jazdy, wysyłania danych na serwer wykorzystując sieć GSM oraz awaryjnego powiadamiania właściciela w przypadku wykrycia kradzieży. Drugie urządzenie ma za zadanie autoryzować ruch pojazdu i deaktywować funkcję alarmu. Komunikacja pomiędzy obydwoma urządzeniami odbywa się zabezpieczonym kanałem poprzez Bluetooth Low Energy z wykorzystaniem algorytmu szyfrowania AES128. \\
 
-W ramach pracy przeprowadzono również badania nad sposobem analizy i oceny stylu jazdy kierowcy, które miały na celu umożliwienie właścicielom oraz managerom firm posiadających własną flotę pojazdów gromadzenie pełniejszych informacji na temat sposobu ich użytkowania. Badania zaowocowały przedstawieniem autorskiego algorytmu wykrywania agresywnego sposobu prowadzenia pojazdów.
+Kolejnym elementem systemu jest aplikacja serwerowa napisana w języku C++. Jej celem jest odbieranie danych transmitowanych przez urządzenia, przetworzenie ich i zapisanie w bazie danych. Ponadto, jest ona odpowiedzialna za obsługę zapytań HTTP pochodzących ze strony internetowej stanowiący ostatni moduł pracy. Jest ona wykorzystywana w celu rejestracji i logowania użytkowników do systemu, dodawania urządzeń, a także wyświetlania danych o przebytych trasach oraz ocenach stylu jazdy i ich wizualizacji na mapach od firmy Google. \\
+
+W ramach pracy przeprowadzono również badania nad sposobem analizy i oceny stylu jazdy kierowcy, w oparciu o informacje dotyczące przyspieszenia i jego zmian pochodzące z akcelerometru. Badania zaowocowały przedstawieniem autorskiego algorytmu wykrywania agresywnego sposobu prowadzenia pojazdów.\\
 
 \textbf{Słowa kluczowe: }analiza stylu jazdy, Bluetooth Low Energy, GPS, GSM, lokalizacja, pojazd, samochód, szyfrowanie komunikacji
 
 \end{singlespacing}
 
+\clearpage
+\thispagestyle{empty}
+\clearpage
+\thispagestyle{empty}
 
-\chapter*{Abstract}
+\noindent {\Large\textbf{Abstract}}
 
-\flushbottom
 
 \noindent {\Large\textbf{The project of the device localizing vehicles on and off-line}}
 

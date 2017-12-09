@@ -30,6 +30,7 @@ Kolejny problem związany był typowo z elektroniką. Polegał on na tym, że mi
 	\label{fig:image_mistake_gps_power}
 \end{figure}
 
+\clearpage
 \section{Kompensacja wpływu przyspieszenia ziemskiego}
 
 Występowanie przyspieszenia ziemskiego w systemach pomiaru przyspieszeń bywa często uciążliwe. Problem ten występowałby jedynie dla jednej osi, gdyby urządzenia były idealnie zorientowane względem Ziemi tak, aby oś Z akcelerometru pokrywała się z kierunkiem działania siły grawitacji. Ze względu na fakt, iż jest to praktycznie niemożliwe do osiągnięcia, zwłaszcza w pojazdach, wartość przyspieszenia ziemskiego jest rzutowana nie tylko na oś Z, ale także X i Y. Jest to działanie niepożądane, ponieważ stanowi stały składnik dodawany do mierzonych przyspieszeń (\textit{ang. offset}), co zaburza pomiar. W związku z tym, na etapie inicjalizacji urządzenia lokalizującego należy dokonać pomiaru przyspieszeń we wszystkich osiach (przy założeniu bezruchu urządzenia), a następnie od każdej próbki przyspieszenia odejmować te wartości.
