@@ -9,7 +9,7 @@ Zgodnie z założeniami pracy, aby zrealizować postawiony urządzeniu cel, zdec
 	
 	\item \textbf{NMEA 0183} - Jest to standard w jakim moduł GPS wysyła dane do mikrokontrolera
 	\item \textbf{Bluetooth Low Energy} - Wykorzystywany do komunikacji bliskiego i średniego zasięgu (komunikacja z użytkownikiem oraz z urządzeniem deaktywującym)
-	\item \textbf{NFC} - Wykorzystywany do komunikacji bardzo bliskiego zasięgu (do wysłania klucza szyfrującego do- oraz komendy deaktywującej od urządzenia deaktywującego)
+	\item \textbf{NFC} - Wykorzystywany do komunikacji bardzo bliskiego zasięgu (do wysłania klucza szyfrującego do oraz komendy deaktywującej z urządzenia deaktywującego)
 \end{itemize}
 
 Wszystkie z powyższych protokołów zostały pokrótce opisane, a następnie krótko zestawione w tym rozdziale.
@@ -41,7 +41,7 @@ We wcześniejszych podrozdziałach dokonano krótkiej analizy każdego z protoko
 \textbf{Właściwości} & - Ogromny zasięg, dzięki rozbudowanej sieci stacji naziemnych & - Zasięg globalny & - Średni zasięg (do 50 m) & - Bardzo bliski zasięg (do 10 cm) \\
 			& - Możliwość odbioru i transmisji & - Tylko do odczytu & - Możliwość odbioru i transmisji & - Możliwość odbioru i transmisji \\
 			& - Prędkość rzędu 57.6 kb/s (odbiór) i 14.5 kb/s (transmisja) & - 50 bit/s & - Około 125 kb/s & - Około 106 kb/s \\
-			& - Wysoki pobór pradu (w szczycie do 1.5 A) & - Średni pobór prądu (ok. 30 mA w trakcie śledzenia pozycji) & - Niski pobór prądu (ok. 7 - 14 mA w trakcie transmisji) & - Pobór energii rzędu 100 mA w trybie inicjatora, 0 mA w trybie pasywnym \\ \hline
+			& - Wysoki pobór pradu (w szczycie do 1.5 A) & - Średni pobór prądu (ok. 30 mA w trakcie śledzenia pozycji) & - Niski pobór prądu (ok. 7 - 14 mA nateżęnia chwilowego w trakcie transmisji) & - Pobór energii rzędu 100 mA w trybie inicjatora, 0 mA w trybie pasywnym \\ \hline
 \textbf{Możliwości wykorzystania} & - Rozmowy głosowe & - Odczyt lokalizacji & - Energooszczędna transmisja danych & - Bezpieczna, bezkontaktowa transmisja danych \\
 						& - Wiadomości SMS & - Bardzo dokładny odczyt prędkości & & - Parowanie urządzeń \\
 						& - Dostęp do internetu & - Bardzo dokładne źródło czasu & & - Wymiana kluczy szyfrujących \\ \hline

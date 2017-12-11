@@ -2,6 +2,8 @@
 \nocite{*} %wszystkie wpisy trafią do bibliografii
 \lstset{language=C, tabsize=2,  basicstyle=\footnotesize\ttfamily, keywordstyle=\underbar}
 
+\setpagenumberingtype{gobble} % Remove page numbers (and reset to 1)
+
 \input{_tytulowa}
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \clearpage
@@ -64,4 +66,4 @@
 \addcontentsline{toc}{chapter}{Spis tabel}
 \listoftables
 
-\chapter*{Załączniki}
+\input{zalaczniki}
