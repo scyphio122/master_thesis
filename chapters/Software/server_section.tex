@@ -13,7 +13,7 @@ Baza danych składa się z 4 tabel. Są to :
 \item Tabela próbek
 \end{itemize}
 
-Jako silnik bazodanowy, zdecydowano się wykorzystać system SQLite. Stanowi on uproszczony, lecz bardzo wydajny sterownik opierający się na zapytaniach SQL, służący do obsługi relacyjnych baz danych. Kolejną zaletą jest fakt, iż jest on obsługiwany wewnętrznie przez bibliotekę Qt.
+Jako silnik bazodanowy zdecydowano się wykorzystać system SQLite. Stanowi on uproszczony, lecz bardzo wydajny sterownik opierający się na zapytaniach SQL, służący do obsługi relacyjnych baz danych. Kolejną zaletą jest fakt, iż jest on obsługiwany wewnętrznie przez bibliotekę Qt.
 Relacje pomiędzy poszczególnymi tabelami bazy danych zostały przedstawione na rysunku \ref{fig:image_soft_db_relations}.
 
 Założenia struktury bazy danych są następujące:
@@ -33,7 +33,7 @@ Założenia struktury bazy danych są następujące:
 	\label{fig:image_soft_db_relations}
 \end{figure}
 
-Jako serwer HTTP zastosowano bibliotekę QttpServer użytkownika supamii\cite{qttpserver}. Została ona napisana pod licencją MIT, co zapewnia swobodę użytkowania i modyfikacji kodu źródłowego, a nawet komercyjne zastosowanie pod warunkiem umieszczenia oryginalnych warunków licencyjnych i informacji o autorze. Biblioteka umożliwia komunikację zarówno poprzez zapytania HTTP typu GET jak i POST. Zapytania te różnią się pomiędzy sobą tym, że w zapytaniu typu GET zmienne przekazywane są jawnie wewnątrz adresu URL, natomiast w zapytaniu typu POST są ukryte.
+Jako serwer HTTP zastosowano bibliotekę QttpServer autorstwa użytkownika supamii\cite{qttpserver}. Została ona napisana pod licencją MIT, co zapewnia swobodę użytkowania i modyfikacji kodu źródłowego, a nawet komercyjne zastosowanie pod warunkiem umieszczenia oryginalnych warunków licencyjnych i informacji o autorze. Biblioteka umożliwia komunikację zarówno poprzez zapytania HTTP typu GET jak i POST. Zapytania te różnią się pomiędzy sobą tym, że w zapytaniu typu GET zmienne przekazywane są jawnie wewnątrz adresu URL, natomiast w zapytaniu typu POST są one ukryte.
 
 Przy pomocy aplikacji, można wykonać następujące operacje:
 
@@ -44,13 +44,13 @@ Przy pomocy aplikacji, można wykonać następujące operacje:
 \item Pobieranie danych o użytkowniku z bazy danych
 \item Zmianę danych użytkownika
 \item Zmianę hasła użytkownika
-\item Kasowanie użytkownika
+\item Kasowanie konta użytkownika
 \item Dodawanie urządzenia do konta użytkownika
 \item Pobieranie listy urządzeń przypisanych do użytkownika
 \item Pobieranie informacji o urządzeniu
 \item Usuwanie urządzenia z bazy danych
 \item Dodawanie nowej trasy do urządzenia
-\item Pobieranie listy tras przypisanej do urządzenia
+\item Pobieranie listy tras przypisaych do urządzenia
 \item Pobieranie informacji o trasie
 \item Dodawanie próbek do trasy
 \item Zakończanie trasy
