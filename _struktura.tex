@@ -4,15 +4,21 @@
 
 \setpagenumberingtype{gobble} % Remove page numbers (and reset to 1)
 
+\mbox{}
+\thispagestyle{empty}
+\newpage
+\input{cv}
+\clearpage
+
+\setcounter{page}{1}
+
 \input{_tytulowa}
 \clearpage{\pagestyle{empty}\cleardoublepage}
-\clearpage
+\cleardoublepage
 \phantomsection
 
 \includepdf[pages={1}]{chapters/Karta_Tematu_MGR.pdf}
 \cleardoublepage
-
-\setpagenumberingtype{gobble} % Remove page numbers (and reset to 1)
 
 \input{streszczenie}
 \cleardoublepage
