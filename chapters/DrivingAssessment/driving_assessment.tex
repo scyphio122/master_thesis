@@ -4,7 +4,7 @@
 
 W rozdziale przedstawiono opis podstawowej funkcjonalności zaprogramowanego urządzenia, stanowiącej analizę stylu jazdy kierowcy. Zawiera on autorskie badania, krótki opis istniejących rozwiązań oraz propozycję własnego algorytmu oceny sposobu jazdy. 
 
-Funkcjonalność opisująca styl jazdy jest niezwykle istotna z punktu widzenia jednej z grup docelowych, do których kierowane jest urządzenie - firm posiadających flotę pojazdów. Wynika to z faktu rosnących kosztów prowadzenia działalności oraz użytkowania pojazdów (w tym wzrostu cen paliwa, części zamiennych i usług). Można do nich zaliczyć nadmiernie szybkie zużycie części eksploatacyjnych, jak na przykład klocki hamulcowe czy opony, a także koszty związane z wypadkami losowymi jak stłuczki. W przypadku firm, są one często generowane przez nieodpowiedzialnych pracowników, którzy nie szanują własności pracodawcy i prowadzą pojazdy w sposób lekkmyślny i agresywny. Ograniczenie tego procederu jest o tyle problematyczne, iż trudno o jednoznaczne dowody winy pracownika - kierowcy. Odpowiadając na tę potrzebę rynkową, opisywany w pracy system pozwala nie tylko na ocenę stylu jazdy i jego zdalne monitorowanie na bieżąco, lecz także na zapisywanie historii ocen przypisanych do punktów przebytej przez pracownika trasy wraz z dodatkowymi parametrami, opisywanymi we wcześniejszych rozdziałach. Pozwala to nie tylko na uzyskanie informacji czy pracownik jechał zbyt agresywnie, lecz także kiedy i gdzie to nastąpiło.
+Funkcjonalność opisująca styl jazdy jest niezwykle istotna z punktu widzenia jednej z grup docelowych, do których kierowane jest urządzenie - firm posiadających flotę pojazdów. Wynika to z faktu rosnących kosztów prowadzenia działalności oraz użytkowania pojazdów (w tym wzrostu cen paliwa, części zamiennych i usług). Można do nich zaliczyć nadmiernie szybkie zużycie części eksploatacyjnych, jak na przykład klocków hamulcowych czy opon, a także koszty związane z wypadkami losowymi jak stłuczki. W przypadku firm, są one często generowane przez nieodpowiedzialnych pracowników, którzy nie szanują własności pracodawcy oraz prowadzą pojazdy w sposób lekkmyślny i agresywny. Ograniczenie tego procederu jest o tyle problematyczne, iż trudno o jednoznaczne dowody winy pracownika - kierowcy. Odpowiadając na tę potrzebę rynkową, opisywany w pracy system pozwala nie tylko na ocenę stylu jazdy i jego zdalne monitorowanie na bieżąco, lecz także na zapisywanie historii ocen przypisanych do punktów przebytej przez pracownika trasy wraz z dodatkowymi parametrami, opisywanymi we wcześniejszych rozdziałach. Pozwala to nie tylko na uzyskanie informacji czy pracownik jechał zbyt agresywnie, lecz także kiedy i gdzie to nastąpiło.
 
 \clearpage
 \section{Istniejące metody}
@@ -21,12 +21,12 @@ gdzie
 $g(i)$ - wartość próbki przyspieszenia
 $k$ - liczba próbek w oknie sygnału
 
-Skok cyklicznie wyliczanej w ten sposób średniej powyżej założonego przez autorów progu traktowany jest jako początek manewru. Trwa on dopóki wartość SMA nie spadnie poniżej progu końca manweru. Jeśli czas trwania wykrytego w ten sposób ruchu jest dłuższy niż 15 sekund, jest on traktowany jako błąd pomiaru i odrzucany.
+Skok cyklicznie wyliczanej w ten sposób średniej powyżej założonego przez autorów progu traktowany jest jako początek manewru. Trwa on dopóki wartość SMA nie spadnie poniżej progu końca manewru. Jeśli czas trwania wykrytego w ten sposób ruchu jest dłuższy niż 15 sekund, jest on traktowany jako błąd pomiaru i odrzucany.
 
 Wykryte w ten sposób manewry poddawane są następnie przetworzeniu przez algorytm DTW. Pozwala on na znalezienie najmniejszej odległości między dwoma sygnałami, czyli stopnia ich podobieństwa (korelacji). Oznacza to, że w pamięci programu zapisane są pewne uśrednione modele wszystkich wykrywanych manewrów, z którymi porównywane są aktualnie przetwarzane dane. Wyliczona korelacja z modelami jazdy agresywnej może służyć za ocenę stylu jazdy.
 
-Metoda ta pozwala na wykrycie wielu różnych manewrów, lecz jest kosztowna obliczeniowo i pamięciowo. Nie jest to problem dla telefonów znajdujących się obecnie na rynku, ale stanowi kluczową kwestię w systemach wbudowanych, posiadających niewielkie zasoby. Ponadto, problemem samego algorytmu jest brak precyzyjnej definicji czym jest manewr łagodny, a czym gwałtowny, przez co bazuje on na subiektywnie wybranych modelach manewrów. Co więcej, fakt zastosowania smartfona powoduje wzrost kosztów systemu, a także konieczność jego cyklicznego ładowania co znacznie utrudnia możliwość jego ukrycia wewnątrz pojazdu.
-W związku faktem iż praca powstała na Wydziale Mechatroniki, która stanowi interdyscyplinarną, synergiczną dziedziną łączącą mechanikę, elektronikę i sterowanie, zdecydowano się na przeprowadzenie własnych badań i zaproponowanie autorskiego rozwiązania, które można byłoby zastosować w opisywanym w pracy systemie.
+Metoda ta pozwala na wykrycie wielu różnych manewrów, lecz jest kosztowna obliczeniowo i pamięciowo. Nie jest to problem dla telefonów będących obecnie na rynku, ale stanowi kluczową kwestię w systemach wbudowanych, posiadających niewielkie zasoby. Ponadto, problemem samego algorytmu jest brak precyzyjnej definicji czym jest manewr łagodny, a czym gwałtowny, przez co bazuje on na subiektywnie wybranych modelach manewrów. Co więcej, fakt zastosowania smartfona powoduje wzrost kosztów systemu, a także konieczność jego cyklicznego ładowania co znacznie utrudnia możliwość jego ukrycia wewnątrz pojazdu.
+W związku z faktem, iż praca powstała na Wydziale Mechatroniki, która stanowi interdyscyplinarną, synergiczną dziedzinę łączącą mechanikę, elektronikę i sterowanie, zdecydowano się na przeprowadzenie własnych badań i zaproponowanie autorskiego rozwiązania, które można byłoby zastosować w opisywanym w pracy systemie.
 
 \section{Badania}
 \label{experiments}
@@ -37,7 +37,7 @@ Drugim, znacznie ciekawszym parametrem jest przyspieszenie. Jest ono tak interes
 
 \begin{itemize}
 \item Zużycie opon w przypadku zerwania przyczepności przy ruszaniu
-\item Oderwanie odważników wyważających koła, co ma wpływ na komfort jazdy ale również na elementy zawieszenia pojazdu (drgania)
+\item Oderwanie odważników wyważających koła co nie tylko wpływa na komfort jazdy, lecz również na elementy zawieszenia pojazdu (drgania)
 \item Zużycie sprzęgła w przypadku agresywnego ruszania
 \item Duże obciążenie elementów przeniesienia napędu
 \item Szybsze zużycie elementów wewnętrznych silnika
@@ -48,7 +48,7 @@ Drugim, znacznie ciekawszym parametrem jest przyspieszenie. Jest ono tak interes
 
 Dodatkowo, w ramach rozważań uwzględniono, że wpływ na bezpieczeństwo i ekonomię ma nie tylko wartość akceleracji, lecz także jego zmienność reprezentowana przez zryw, czyli pochodną przyspieszenia po czasie. Z tego powodu postanowiono wykorzystać zamontowany na płytce lokalizatora akcelerometr i zbadać przebiegi przyspieszenia oraz zrywu w osiach X, Y i Z w trakcie wykonywania różnych manewrów na drodze. W każdym z testów poczyniono założenie o odpowiedniej orientacji urządzenia względem pojazdu. Zostało ono w każdym przypadku ustawione tak, aby oś Y pokrywała się z kierunkiem jazdy na wprost, oś Z była umieszczona prostopadle do podłoża, a wynikowo oś X wskazywała kierunek od drzwi do drzwi pojazdu.
 
-W trakcie eksperymentów bardzo istotne było wyeliminowanie wpływu przyspieszenia ziemskiego oraz jego rzutów na osie X i Y, wynikających z niedokładnej orientacji urządzenia. W związku z tym, po uruchomieniu, przez sekundę zbiera ono próbki przyspieszeń, po czym dokonuje ich uśrednienia i zapisuje wyniki w pamięci. Zmierzone w ten sposób wartości są odejmowane od każdej pobranej z akcelerometru próbek. Dzięki zastosowaniu tej metody uzyskano bardzo dokładną kompensację wpływu grawitacji w bezruchu pojazdu. Końcowy wynik był rzędu 0.005 $\frac{m}{s^2}$.
+W trakcie eksperymentów bardzo istotne było wyeliminowanie wpływu przyspieszenia ziemskiego oraz jego rzutów na osie X i Y, wynikających z niedokładnej orientacji urządzenia. W związku z tym, po uruchomieniu, przez sekundę zbiera ono próbki przyspieszeń, po czym dokonuje ich uśrednienia i zapisuje wyniki w pamięci. Zmierzone w ten sposób wartości są odejmowane od każdej pobranej z akcelerometru próbki. Dzięki zastosowaniu tej metody uzyskano bardzo dokładną kompensację wpływu grawitacji przy braku ruchu pojazdu. Końcowy wynik pomiaru w tym przypadku był rzędu 0.005 $\frac{m}{s^2}$.
 
 Testy rozpoczęto od najniższej dostępnej częstotliwości próbkowania - 12.5 Hz, w celu osiągnięcia jak najmniejszego zużycia energii przez akcelerometr i ograniczenia liczby niezbędnych do wykonania działań. Wyniki przedstawiono na rysunku \ref{fig:image_driving_analysis_test_12Hz}. W przypadku tego testu, ujemna część osi Y skierowana była zgodnie z ruchem pojazdu, oś X wskazywała przyspieszenia boczne, a oś Z - przyspieszenia pionowe.
 
@@ -111,7 +111,7 @@ Na powyższym obrazku widać, że dane są już kompletne, nie wykazują nagłej
 	\label{fig:image_driving_analysis_test_acc_light_hard_lane_52Hz}
 \end{figure}
 
-Obserwując powyższe wykresy można zauważyć, że są one na tyle dokładne, iż widać na nich nawet moment zmiany biegu (nagły, krótkotrwały spadek przyspieszenia dla osi Y). Można również dostrzec, że wartości przyspieszeń w przypadku łagodnego i agresywnego przyspieszania nie różnią się od siebie znacząco, w przeciwieństwie do ich chwilowych zmian, opisywanych przez zryw. Jest to wynikiem rozbieżnością stopni przełożeń w skrzyni biegów co powoduje, że na niskich biegach pojazd uzyskuje większe przyspieszenie niż na wysokich. W rezultacie oznacza to, że wartość przyspieszenia nie może stanowić głównego czynnika oceny stylu jazdy.
+Obserwując powyższe wykresy można zauważyć, że są one na tyle dokładne, iż widać na nich nawet moment zmiany biegu (nagły, krótkotrwały spadek przyspieszenia dla osi Y). Można również dostrzec, że wartości przyspieszeń w przypadku łagodnego i agresywnego przyspieszania nie różnią się od siebie znacząco, w przeciwieństwie do ich chwilowych zmian, opisywanych przez zryw. Jest to rezultat rozbieżności stopni przełożeń w skrzyni biegów, które są tak dobrane, aby pojazd uzyskiwał większe przyspieszenie na niskich biegach niż na wysokich. W efekcie oznacza to, że wartość przyspieszenia nie może stanowić głównego czynnika oceny stylu jazdy.
 
 Kolejnym wnioskiem na podstawie obserwacji uzyskanych danych jest fakt, iż w przypadku łagodnej zmiany pasa pojazd zwalniał (ujemne przyspieszenie w osi Y), a w przypadku agresywnej - przyspieszał (dodatnie przyspieszenie w osi Y). Informacja ta jest bardzo ciekawa, gdyż wskazuje na dodatkową korelację pomiędzy stylem jazdy w osiach X i Y przy zmianie pasa ruchu, co powoduje wzmocnienie jego negatywnej lub pozytywnej oceny.
 
@@ -133,7 +133,7 @@ W celu poprawienia widoczności zależności opisującej styl jazdy w danych dot
 	\label{fig:image_histogram_changing_lane_52Hz}
 \end{figure}
 
-Jak widać, w przypadku jazdy agresywnej, histogramy opisujące ruch w osi głównej (dla zmiany pasa ruchu - oś X, dla jazdy na wprost - oś Y) ulegają spłaszczeniu i rozszerzeniu. Oznacza to, że mniej próbek uzyskuje niską wartość bezwzględną zrywu, a więcej wysoką, w porówaniu do histogramu dla jazdy łagodnej. Stanowi to potwierdzenie tezy o wzroście wariancji pochodnej przyspieszenia wraz ze wzrostem poziomu agresywności stylu jazdy.
+Jak widać, w przypadku jazdy agresywnej, histogramy opisujące ruch w osi głównej (dla zmiany pasa ruchu - oś X, dla jazdy na wprost - oś Y) ulegają spłaszczeniu i rozszerzeniu. Oznacza to, że mniej próbek uzyskuje niską wartość bezwzględną zrywu, a więcej wysoką, w porówaniu do histogramu dla jazdy łagodnej. Stanowi to potwierdzenie tezy o wzroście wariancji pochodnej przyspieszenia wraz ze wzrostem poziomu agresji stylu jazdy.
 
 Podsumowując, na podstawie danych przedstawionych na powyższych rysunkach otrzymano następujące wnioski:
 
@@ -191,7 +191,7 @@ Start nastąpił o godzinie 21:30:59 z ulicy Sobieskiego w Warszawie. Poruszano 
 	\label{fig:image_driving_analysis_alghoritm_track_1_part_1}
 \end{figure}
 
-Następnie skręcono w Dolinę Slużewiecką, która przeszła w ulicę Rzymowskiego i poruszano się nią aż do skrzyżowania z ulicą Marynarską. Krótko po rozpoczęciu poruszania się Doliną Służewiecką dokonano zwiększenia dynamiki jazdy - bardziej zdecydowanie przyspieszano oraz kilkukrotnie zmieniano pasy ruchu. Manerwy te jednak nie były w stopniu, który można by określić agresywnym, bądź niebezpiecznym. Przedstawiono to na rysunku \ref{fig:image_driving_analysis_alghoritm_track_1_part_2}.
+Następnie skręcono w Dolinę Slużewiecką, przechodzącą w ulicę Rzymowskiego i poruszano się nią aż do skrzyżowania z ulicą Marynarską. Krótko po rozpoczęciu poruszania się Doliną Służewiecką dokonano zwiększenia dynamiki jazdy - bardziej zdecydowanie przyspieszano oraz kilkukrotnie zmieniano pasy ruchu. Manerwy te jednak nie były w stopniu, który można by określić agresywnym, bądź niebezpiecznym. Przedstawiono to na rysunku \ref{fig:image_driving_analysis_alghoritm_track_1_part_2}.
 
 \begin{figure}[H]
 	\centering
@@ -200,7 +200,7 @@ Następnie skręcono w Dolinę Slużewiecką, która przeszła w ulicę Rzymowsk
 	\label{fig:image_driving_analysis_alghoritm_track_1_part_2}
 \end{figure}
 
-Kolejnym etapem był zjazd w ulicę Marynarską i jazda nią aż do Alei Krakowskiej. Od pewnego momentu pierwszej z nich, mniej więcej na wysokości trasy S79 występuje podwyższenie dopuszczalnej prędkości do 80 km/h. Tam dokonano testów agresywnej jazdy. Polegały one na cyklicznym, chwilowym, lecz częstym, mocnym przyspieszaniu oraz gdy warunki na to pozwalały - hamowaniu. Ostre hamowanie nastąpiło tuż przed zjazdem w ulicę Aleja Krakowska. Wyniki testów przedstawiono na rysunku \ref{fig:image_driving_analysis_alghoritm_track_1_part_3}.
+Kolejnym etapem był wjazd w ulicę Marynarską i jazda nią aż do Alei Krakowskiej. Od pewnego momentu pierwszej z nich, mniej więcej na wysokości trasy S79 występuje podwyższenie dopuszczalnej prędkości do 80 km/h. Tam dokonano testów agresywnej jazdy. Polegały one na cyklicznym, chwilowym, lecz częstym, mocnym przyspieszaniu oraz gdy warunki na to pozwalały - hamowaniu. Ostre hamowanie nastąpiło tuż przed zjazdem w ulicę Aleja Krakowska. Wyniki testów przedstawiono na rysunku \ref{fig:image_driving_analysis_alghoritm_track_1_part_3}.
 
 \begin{figure}[H]
 	\centering
