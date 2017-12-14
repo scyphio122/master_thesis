@@ -5,9 +5,9 @@ Poniższy podrozdział powstał na podstawie źródeł \cite{GPS_ublox} oraz \ci
 
 
 
-System GPS (\textit{ang. \textbf{G}lobal \textbf{P}ositioning \textbf{S}ystem}) był historycznie pierwszym systemem nawizgacji satelitarnej GNSS (\textit{ang. \textbf{G}lobal \textbf{N}avigation \textbf{S}attelite \textbf{S}ystem}). Powstał w wyniku prac w Departamencie Obrony Stanów Zjednoczonych i jest w pełni własnością rządu tego kraju. Oprócz niego istnieją jeszcze rosyjski GLONASS, a od niedawna europejski Galileo oraz chiński Beidou. Ostatnie dwa systemy satelitarne nie są jeszcze w pełni funkcjonalne, stanowią raczej systemy o zasięgu regionalnym niż globalnym.
+System GPS (\textit{ang. \textbf{G}lobal \textbf{P}ositioning \textbf{S}ystem}) był historycznie pierwszym systemem nawigacji satelitarnej GNSS (\textit{ang. \textbf{G}lobal \textbf{N}avigation \textbf{S}attelite \textbf{S}ystem}). Powstał w wyniku prac w Departamencie Obrony Stanów Zjednoczonych i jest w pełni własnością rządu tego kraju. Oprócz niego istnieją jeszcze rosyjski GLONASS, a od niedawna europejski Galileo oraz chiński Beidou. Ostatnie dwa systemy satelitarne nie są jeszcze w pełni funkcjonalne, stanowią raczej systemy o zasięgu regionalnym niż globalnym.
 
-Głównym elementem składowym systemów nawigacji satelitarnej, są jak sama nazwa wsazuje satelity. Poruszają się one po ściśle określonych, stałych orbitach, które są tak dobrane, aby z dowolnego punktu na globie, w dowolnym momencie była możliwość odebrania sygnału z co najmniej czterech z nich. Przedstawia to rysunek \ref{fig:image_gps_basics}.
+Głównym elementem składowym systemów nawigacji satelitarnej, są jak sama nazwa wskazuje satelity. Poruszają się one po ściśle określonych, stałych orbitach, które są tak dobrane, aby z dowolnego punktu na globie, w dowolnym momencie była możliwość odebrania sygnału z co najmniej czterech z nich. Przedstawia to rysunek \ref{fig:image_gps_basics}.
 
 \begin{figure}[H]
 	\centering
@@ -16,7 +16,7 @@ Głównym elementem składowym systemów nawigacji satelitarnej, są jak sama na
 	\label{fig:image_gps_basics}
 \end{figure}
 
-Podstawę w systemach GNSS stanowi czas. Każdy z satelitów posiada 4 zegary atomowe, które stanowią najdokładniejsze źródło czasu znane ludzkości. Zegary te posiadają błąd rzędu 1 sekundy po upływie najwcześniej 30000 lat. Dodatkowo, są one co pewien czas synchronizowane ze źródłami na Ziemi.
+Podstawę w systemach GNSS stanowi czas. Każdy z satelitów posiada 4 zegary atomowe. Zegary te posiadają błąd rzędu 1 sekundy po upływie najwcześniej 30000 lat. Dodatkowo, są one co pewien czas synchronizowane ze źródłami na Ziemi.
 
 Zadaniem każdego z satelitów jest nadawanie w formie rozgłoszeniowej sygnału, w którym zawarta jest wiadomość o jego lokalizacji na orbicie oraz czasie w momencie wysyłania wiadomości. Sygnał ten nadawany jest drogą radiową więc jego prędkość jest równa prędkości światła. Po dotarciu na Ziemię jest on bardzo słaby, przez co praktycznie niemożliwe jest jego odebranie wewnątrz budynków, a w pobliżu wysokich obiektów dokładność lokalizacji spada. Najdokładniejsze wyniki wyznaczania pozycji można osiągnąć na otwartej przestrzeni. Podstawowy sygnał przesyłany jest na fali nośnej o częstotliwości 1575.42 MHz, która nosi nazwę L1.
 
@@ -32,7 +32,7 @@ Problem ten rozwiązano na 2 sposoby. Pierwszym z nich jest nadawanie sygnału p
 
 Druga metoda to wyznaczenie korekty dla przejścia przez jonosferę w stacjach naziemnych, a następnie rozgłaszanie jej w postaci depeszy poprzez sieć stacji bazowych. Rozwiązanie to nosi miano DGPS (\textit{ang. \textbf{D}ifferential \textbf{GPS}}). Dzięki zastosowaniu tej techniki, dokładność lokalizacji wzrasta z nominalnych 15 m nawet do 10 cm.
 
-Układy GPS, które umożliwiają skorzystanie z któregoś z tych dwóch rozwiązań są jednak kosztowne, więc na rynku cywilnym najpowszechniej stosowane są moduły wykorzysujące jedynie częstotliwość L1. Dzięki temu, za kilkadziesiąt złotych można uzyskać system, który w sprzyjających warunkach charakteryzuje się dokładnością do kilku metrów \cite{inzynierka}(Rozdział 7 - Testy urządzenia). W pracy tej uzyskano dokładność systemu rzędu 1 - 2 metrów w terenie otwartym, oraz 5 - 7 metrów idąc chodnikiem wzdłuż wysokich budynków.
+Układy GPS, które umożliwiają skorzystanie z któregoś z tych dwóch rozwiązań są jednak kosztowne, więc na rynku cywilnym najpowszechniej stosowane są moduły wykorzysujące jedynie częstotliwość L1. Mimo to, dokładność wyznaczania lokalizacji jest bardzo dobra. Wynosi ona około 1 - 2 metrów w terenie otwartym, oraz 5 - 7 metrów idąc chodnikiem wzdłuż wysokich budynków \cite{inzynierka}.
 
 Aby zrozumieć zasadę działania systemu GPS proszę wyobrazić sobie sytuację jak na rysunku \ref{fig:image_gps_basics1}:
 

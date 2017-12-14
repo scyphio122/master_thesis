@@ -1,6 +1,6 @@
 \section{Aplikacja serwerowa}
 
-Kolejnym etapem pracy było zaprogramowanie aplikacji serwerowej, która obsługiwałaby zapytania HTTP (\textit{ang. \textbf{H}yper\textbf{t}ext \textbf{T}ransfer \textbf{P}rotocol}) użytkownika oraz zapytania do bazy danych. Aplikacja została napisana przy pomocy framework'a Qt. Jest to ostatnimi czasy jedno z najpopularniejszych zbiorów bibliotek do języka C++. Wybór środowiska nastąpił z kilku powodów. Pierwszym i jednocześnie najważniejszym z nich jest wbudowany moduł obsługi relacyjnych baz danych. Dzięki temu, wykorzystując kilka wysokopoziomowych funkcji można szybko operować na zgromadzonych danych. Ponadto, aplikacja napisana w C++ statystycznie zapewnia większą wydajność niż podobna napisana w języku Java. Ostatnim z powodów jest wieloletnia znajomość tej biblioteki oraz jej metodologii komunikacji wewnętrznej przez autora pracy.
+Kolejnym etapem pracy było projekt aplikacji serwerowej, która obsługiwałaby zapytania HTTP (\textit{ang. \textbf{H}yper\textbf{t}ext \textbf{T}ransfer \textbf{P}rotocol}) użytkownika oraz zapytania kierowane do bazy danych. Aplikacja została napisana w środowisku Qt. Wybór środowiska nastąpił z kilku powodów. Pierwszym i jednocześnie najważniejszym z nich jest wbudowany moduł obsługi relacyjnych baz danych. Dzięki temu, wykorzystując kilka wysokopoziomowych funkcji można szybko operować na zgromadzonych danych. Ponadto, aplikacja napisana w C++ statystycznie zapewnia większą wydajność niż podobna napisana w języku Java. Ostatnim z powodów jest znajomość tej biblioteki oraz jej metodologii komunikacji wewnętrznej przez autora pracy.
 
 Aplikacja składa się z dwóch głównych modułów: manager'a bazy danych oraz serwera HTTP.
 
@@ -33,26 +33,26 @@ Założenia struktury bazy danych są następujące:
 	\label{fig:image_soft_db_relations}
 \end{figure}
 
-Jako serwer HTTP zastosowano bibliotekę QttpServer autorstwa użytkownika supamii\cite{qttpserver}. Została ona napisana pod licencją MIT, co zapewnia swobodę użytkowania i modyfikacji kodu źródłowego, a nawet komercyjne zastosowanie pod warunkiem umieszczenia oryginalnych warunków licencyjnych i informacji o autorze. Biblioteka umożliwia komunikację zarówno poprzez zapytania HTTP typu GET jak i POST. Zapytania te różnią się pomiędzy sobą tym, że w zapytaniu typu GET zmienne przekazywane są jawnie wewnątrz adresu URL, natomiast w zapytaniu typu POST są one ukryte.
+Jako serwer HTTP zastosowano bibliotekę QttpServer autorstwa użytkownika supamii \cite{qttpserver}. Została ona napisana pod licencją MIT, co zapewnia swobodę użytkowania i modyfikacji kodu źródłowego, a nawet komercyjne zastosowanie pod warunkiem umieszczenia oryginalnych warunków licencyjnych i informacji o autorze. Biblioteka umożliwia komunikację zarówno poprzez zapytania HTTP typu GET jak i POST. Zapytania te różnią się pomiędzy sobą tym, że w zapytaniu typu GET zmienne przekazywane są jawnie wewnątrz adresu URL, natomiast w zapytaniu typu POST są one ukryte.
 
 Przy pomocy aplikacji, można wykonać następujące operacje:
 
 \begin{itemize}
-\item Logowanie użytkownika
-\item Wylogowanie użytkownika
-\item Rejestracja nowego użytkownika
-\item Pobieranie danych o użytkowniku z bazy danych
-\item Zmianę danych użytkownika
-\item Zmianę hasła użytkownika
-\item Kasowanie konta użytkownika
-\item Dodawanie urządzenia do konta użytkownika
-\item Pobieranie listy urządzeń przypisanych do użytkownika
-\item Pobieranie informacji o urządzeniu
-\item Usuwanie urządzenia z bazy danych
-\item Dodawanie nowej trasy do urządzenia
-\item Pobieranie listy tras przypisaych do urządzenia
-\item Pobieranie informacji o trasie
-\item Dodawanie próbek do trasy
-\item Zakończanie trasy
-\item Usuwanie trasy
+\item logowanie użytkownika,
+\item wylogowanie użytkownika,
+\item rejestracja nowego użytkownika,
+\item pobieranie danych o użytkowniku z bazy danych,
+\item zmianę danych użytkownika,
+\item zmianę hasła użytkownika,
+\item kasowanie konta użytkownika,
+\item dodawanie urządzenia do konta użytkownika,
+\item pobieranie listy urządzeń przypisanych do użytkownika,
+\item pobieranie informacji o urządzeniu,
+\item usuwanie urządzenia z bazy danych,
+\item dodawanie nowej trasy do urządzenia,
+\item pobieranie listy tras przypisaych do urządzenia,
+\item pobieranie informacji o trasie,
+\item dodawanie próbek do trasy,
+\item zakończanie trasy,
+\item usuwanie trasy.
 \end{itemize}

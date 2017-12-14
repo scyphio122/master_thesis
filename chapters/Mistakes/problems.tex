@@ -1,18 +1,18 @@
 \chapter{Problemy i ich rozwiązania}
 \label{problems_and_solutions}
 
-Nieodłączną częścią każdego projektu informatycznego i elektronicznego są problemy związane z uruchomieniem. Nie inaczej było w przypadku tej pracy i opisywanego w niej systemu. W trakcie jego rozwoju napotkano szereg różnych komplikacji, z którymi należało sobie poradzić. W rozdziale dokonano wyboru i krótkiego opisu istoty problemu wraz z jego solucją trzech najciekawszych z nich.
+Nieodłączną częścią każdego projektu informatycznego i elektronicznego są problemy związane z uruchomieniem. Nie inaczej było w przypadku tej pracy i opisywanego w niej systemu. W rozdziale dokonano wyboru i krótkiego opisu napotkanych problemów wraz z solucją trzech najciekawszych z nich.
 
 
 \section{Zawieszanie urządzenia lokalizującego}
 
-Pierwszy z wybranych problemów dotyczył wczesnych momentów uruchomienia lokalizatora. Polegał on na tym, że mimo poprawnego zaprogramowania mikrokontrolera i działającej poprawnie aplikacji z podłączonym do niej debuggerem, po jego odłączeniu i dokonaniu resetu urządzenia zawieszało się ono gdzieś we wstępnej fazie inicjalizacji. Można było to wywnioskować po fakcie, iż zapalała się dioda LED sterowana programowo, lecz moduł GSM nigdy nie rozpoczynał swej konfiguracji. Po wnikliwym zapoznaniu się z notą katalogową producenta mikrokontrolera okazało się, iż problem stanowił wykorzystywany do odmierzania czasu, wbudowany w rdzeń przez firmę ARM zegar systemowy SysTick. Powodem jego błędnej pracy było każdorazowe wejście mikrokontrolera w tryb oszczędzania energii w trakcie oczekiwania na upłynięcie określonej ilości czasu (\textit{ang. delay}). Powoduje on bowiem zatrzymanie sygnału taktującego rdzeń mikrokontrolera, a tym samym - SysTick'a, wykorzystującego zegar systemowy. Efektem jest wówczas praca w pętli i oczekiwanie na upłynięcie losowej ilości czasu. Losowość ta jest wywołana faktem, iż rdzeń wybudzany jest dowolnym przerwaniem na pewien krótki czas, a zatem SysTick "ożywał" na krótko, by znów ulec po chwili zatrzymaniu. Co ciekawe, problem ten nie występował w trakcie pracy z debuggerem, ponieważ wymusza on ciągłą pracę zegara systemowego niezależnie od trybu oszczędzania energii. 
+Pierwszy z wybranych problemów dotyczył wczesnych momentów uruchomienia lokalizatora. Polegał on na tym, że mimo poprawnego zaprogramowania mikrokontrolera i działającej poprawnie aplikacji z podłączonym do niej debuggerem, po jego odłączeniu i dokonaniu resetu urządzenia zawieszało się już we wstępnej fazie inicjalizacji. Można było to wywnioskować po fakcie, iż zapalała się dioda LED sterowana programowo, lecz moduł GSM nigdy nie rozpoczynał swej konfiguracji. Po wnikliwym zapoznaniu się z notą katalogową producenta mikrokontrolera okazało się, iż problem stanowił wykorzystywany do odmierzania czasu, wbudowany w rdzeń przez firmę ARM zegar systemowy SysTick. Powodem jego błędnej pracy było każdorazowe wejście mikrokontrolera w tryb oszczędzania energii w trakcie oczekiwania na upłynięcie określonego czasu (\textit{ang. delay}). Powoduje on bowiem zatrzymanie sygnału taktującego rdzeń mikrokontrolera, a tym samym - SysTick'a, wykorzystującego zegar systemowy. Efektem jest wówczas praca w pętli i oczekiwanie na upływ losowego czasu. Losowość ta jest wywołana faktem, iż rdzeń wybudzany jest dowolnym przerwaniem na pewien krótki czas, a zatem SysTick "ożywał" na krótko, by znów ulec po chwili zatrzymaniu. Co ciekawe, problem ten nie występował w trakcie pracy z debuggerem, ponieważ wymusza on ciągłą pracę zegara systemowego niezależnie od trybu oszczędzania energii. 
 
 Rozwiązaniem było zastąpienie SysTick'a innym zegarem - wbudowanym w mikrokontroler bardzo energooszczędnym zegarem RTC (\textit{ang. \textbf{R}eal \textbf{T}ime \textbf{C}lock}).
 
 \section{Brak danych z GPS}
 
-Kolejny problem związany był typowo z elektroniką. Polegał on na tym, że mimo włączania modułu GPS zgodnie z notą katalogową producenta układu GSM i GPS - poprzez komendę AT wysyłaną przez interfejs UART do pośredniczącego modułu GSM, moduł GPS nie odpowiadał. Ponadto, nie był on responsywny na żadną inną komendę. Problem ten wynikał z błędnego zrozumienia noty katalogowej, dotyczącej zasilania modułu GPS. Posiada on bowiem osobny pin, do którego powinno zostać dostarczone zasilanie (\textit{GNSS\_VCC}) oraz pin (\textit{GNSS\_VCC\_EN}), który przyjmuje stan wysoki (napięcie o wartości ok. 3.3 V) gdy GPS jest włączony oraz stan niski (napięcie bliskie 0 V) gdy jest wyłączony. Pin \textit{GNSS\_VCC\_EN} reagował poprawnie - zmieniał stan po włączeniu modułu GPS komendą AT. Błędnym rozumowaniem okazało się założenie, że jest to jedynie fizyczny wskaźnik statusu zasilania modułu GPS. W praktyce, zamysłem producenta modułu było, aby pin ten wysterowywał tranzystor bądź zewnętrzne źródło zasilania, w celu podania napięcia na pin \textit{GNSS\_VCC}. Brak odpowiedzi wynikał z faktu zaburzenia sztywnych zależności czasowych w wewnętrznej komunikacji między modułami GSM i GPS. Rozwiązaniem tego problemu było przeprojektowanie zasilania modułu GPS zgodnie z założeniem producenta chip'a. Przedstawiono to na rysunku \ref{fig:image_mistake_gps_power}.
+Kolejny problem związany był typowo z układem elektronicznym. Polegał on na tym, że mimo włączania modułu GPS zgodnie z notą katalogową producenta układu GSM i GPS - poprzez komendę AT wysyłaną przez interfejs UART do pośredniczącego modułu GSM, moduł GPS nie odpowiadał. Ponadto, nie był on responsywny na żadną inną komendę. Problem ten wynikał z błędnego zrozumienia noty katalogowej, dotyczącej zasilania modułu GPS. Posiada on bowiem osobny pin, do którego powinno zostać dostarczone zasilanie (\textit{GNSS\_VCC}) oraz pin (\textit{GNSS\_VCC\_EN}), który przyjmuje stan wysoki (napięcie o wartości ok. 3.3 V) gdy GPS jest włączony oraz stan niski (napięcie bliskie 0 V) gdy jest wyłączony. Pin \textit{GNSS\_VCC\_EN} reagował poprawnie - zmieniał stan po włączeniu modułu GPS komendą AT. Błędnym rozumowaniem okazało się założenie, że jest to jedynie fizyczny wskaźnik statusu zasilania modułu GPS. W praktyce, zamysłem producenta modułu było, aby pin ten wysterowywał tranzystor bądź zewnętrzne źródło zasilania, w celu podania napięcia na pin \textit{GNSS\_VCC}. Brak odpowiedzi wynikał z faktu zaburzenia sztywnych zależności czasowych w wewnętrznej komunikacji między modułami GSM i GPS. Rozwiązaniem tego problemu było przeprojektowanie zasilania modułu GPS zgodnie z założeniem producenta chip'a. Przedstawiono to na rysunku \ref{fig:image_mistake_gps_power}.
 
 \begin{figure}[H]
 \centering
@@ -33,32 +33,32 @@ Kolejny problem związany był typowo z elektroniką. Polegał on na tym, że mi
 \clearpage
 \section{Kompensacja wpływu przyspieszenia ziemskiego}
 
-Występowanie przyspieszenia ziemskiego w systemach pomiaru przyspieszeń bywa często uciążliwe. Problem ten występowałby jedynie dla jednej osi, gdyby urządzenia były idealnie zorientowane względem Ziemi tak, aby oś Z akcelerometru pokrywała się z kierunkiem działania siły grawitacji. Ze względu na fakt, iż jest to praktycznie niemożliwe do osiągnięcia, zwłaszcza w pojazdach, wartość przyspieszenia ziemskiego jest rzutowana nie tylko na oś Z, ale także X i Y. Jest to działanie niepożądane, ponieważ stanowi stały składnik dodawany do mierzonych przyspieszeń (\textit{ang. offset}), co zaburza pomiar. W związku z tym, na etapie inicjalizacji urządzenia lokalizującego należy dokonać pomiaru przyspieszeń we wszystkich osiach (przy założeniu bezruchu urządzenia), a następnie od każdej próbki przyspieszenia odejmować te wartości.
-Pierwotnie, wykorzystywano w tym celu funkcjonalność wbudowaną w moduł akcelerometru. Producent udostępnił w nim rejestry kompensujące, których zawartości odejmowane są sprzętowo od wyników pomiaru. Rozwiązanie to byłoby idealne, ponieważ ze względu na wykonanie tej operacji przez akcelerometr, nie obciążałoby to programu działającego na mikrokontrolerze. Niestety, problemem okazała się rozdzielczość tych rejestrów. Posiadają one pojemność 8 bitów ze znakiem (wartości od -128 do 127) i programowalną w dwustopniowym zakresie rozdzielczość. Do wyboru są dwie wartości: $2^{-6}g/LSB$ (\textit{ang. \textbf{L}east \textbf{S}ignificant \textbf{B}it}) lub $2^{-10}g/LSB$. 
-Po krótkich obliczeniach okazało się, że drugi tryb nie pozwoli na pełną likwidację wartości przyspieszenia ziemskiego, ponieważ:
+Problem prostej kompensacji wpływu przyspieszenia ziemskiego występowałby jedynie dla jednej osi, gdyby urządzenia były idealnie zorientowane względem Ziemi na przykład tak, aby oś Z akcelerometru pokrywała się z kierunkiem działania siły grawitacji. Ze względu na fakt, iż jest to praktycznie niemożliwe do osiągnięcia, zwłaszcza w pojazdach, wartość przyspieszenia ziemskiego jest rzutowana nie tylko na oś Z, ale także X i Y. Wprowadza to stały offset do mierzonych przyspieszeń. W związku z tym, na etapie inicjalizacji urządzenia lokalizującego należy dokonać pomiaru przyspieszeń we wszystkich osiach (przy założeniu bezruchu urządzenia), a następnie od każdej próbki przyspieszenia odejmować te wartości.
+Pierwotnie, wykorzystywano w tym celu funkcjonalność wbudowaną w moduł akcelerometru. Producent udostępnił w nim rejestry kompensujące, których zawartości odejmowane są sprzętowo od wyników pomiaru. Rozwiązanie to byłoby proste, ponieważ ze względu na wykonanie tej operacji przez akcelerometr, nie obciążałoby to programu działającego na mikrokontrolerze. Niestety, posiadają one zbyt małą rozdzielczość (8 bitów ze znakiem), programowalną w dwustopniowym zakresie. Do wyboru są dwie wartości: $2^{-6}g/LSB$ (\textit{ang. \textbf{L}east \textbf{S}ignificant \textbf{B}it}) lub $2^{-10}g/LSB$. 
+Po obliczeniach okazało się, że drugi tryb nie pozwala na pełną kompensację wartości przyspieszenia ziemskiego, ponieważ:
 
 \begin{equation}
-A_{max} = 2^{-10} \cdot 9.81\frac{m}{s^2} \cdot 127 \approx 1.216 \frac{m}{s^2}
+A_{max} = 2^{-10} \cdot 9,81\frac{m}{s^2} \cdot 127 \approx 1,216 \frac{m}{s^2}
 \end{equation}
 
 Gdzie $A_{max}$ wskazuje maksymalną wartość, która może zostać skompensowana. Jak widać, w przypadku tej rozdzielczości nie jest ona dostatecznie duża. Pozostaje więc jedynie wybór $2^{-6} g$:
 
 \begin{equation}
-A_{max} = 2^{-6} \cdot 9.81\frac{m}{s^2} \cdot 127 \approx 19.467 \frac{m}{s^2}
+A_{max} = 2^{-6} \cdot 9,81\frac{m}{s^2} \cdot 127 \approx 19,467 \frac{m}{s^2}
 \end{equation}
 
-Jak widać, przy tej rozdzielczości można teoretycznie bezproblemowo usunąć wpływ grawitacji. Jednakże w tym przypadku pojawia się inny kłopot - rozdzielczość pojedynczego bitu:
+Jak widać, przy tej rozdzielczości można teoretycznie skompensować wpływ grawitacji. Jednakże w tym przypadku pojawia się inny problem - rozdzielczość pojedynczego bitu:
 
 \begin{equation}
-A_{min} = 2^{-6} \cdot 9.81\frac{m}{s^2} \approx 0.153 \frac{m}{s^2}
+A_{min} = 2^{-6} \cdot 9,81\frac{m}{s^2} \approx 0,153 \frac{m}{s^2}
 \end{equation}
 
-gdzie $A_{min}$ jest wartością przyspieszenia kompensowaną przez pojedynczą jednostkę w wartości rejestru. Maksymalny błędny wynik pomiaru, pomimo kompensacji wpływu grawitacji wynosi około $0.152(9) \frac{m}{s^2}$, co w przypadku analizy stylu jazdy wprowadza znaczny błąd. 
+gdzie $A_{min}$ jest wartością przyspieszenia kompensowaną przez pojedynczą jednostkę w wartości rejestru. Maksymalny błędny wynik pomiaru, pomimo kompensacji wpływu grawitacji wynosi około $0,152(9) \frac{m}{s^2}$, co w przypadku analizy stylu jazdy wprowadza znaczny błąd. 
 
 Z tego powodu postanowiono zrezygnować z wykorzystania sprzętowej kompensacji i zastosować programową. W tym celu, w trakcie inicjalizacji urządzenia, przez sekundę zbierane są próbki przyspieszenia przy założeniu bezruchu pojazdu. Ich wartości w osiach X, Y i Z są uśredniane, a następnie odejmowane od każdej zebranej próbki w przyszłości. Dzięki temu, zmierzony doświadczalnie błąd kompensacji wynosił maksymalnie:
 
  \begin{equation}
-A_{min} = 5 \cdot 19.62\frac{m}{s^2}/{2^{15}} \approx 0.003 \frac{m}{s^2}
+A_{min} = 5 \cdot 19,62\frac{m}{s^2}/{2^{15}} \approx 0,003 \frac{m}{s^2}
 \end{equation}
 
-Wynik ten jest dwa rzędy wielkości lepszy niż przy sprzętowej kompensacji.
+Wynik ten jest dwa rzędy wielkości lepszy niż przy kompensacji sprzętowej.

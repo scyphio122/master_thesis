@@ -1,6 +1,6 @@
 \section{Zakres pracy}
 \label{project_sketch}
-Celem pracy było zaprojektowanie, wykonanie i oprogramowanie urządzenia stanowiącego dodatkowe zabezpieczenie pojazdu na wypadek kradzieży, w postaci lokalizatora wykorzystującego system GNSS (\textit{ang. \textbf{G}lobal \textbf{N}avigation \textbf{S}atellite \textbf{S}ystem}) oraz GSM (\textit{ang. \textbf{G}lobal \textbf{S}ystem for \textbf{M}obile Communications}), zdolnego do analizy stylu jazdy kierowcy, a także całego systemu informatycznego, który pozwoliłby na obsłużenie pozyskanych danych. Założeniem jest, aby moduł elektroniczny mógł być zasilany z instalacji elektrycznej pojazdu, lecz poza tym był od niego całkowicie niezależny. Poza nim, w skład systemu wchodzą:
+Celem pracy był projekt, wykonanie i oprogramowanie urządzenia stanowiącego dodatkowe zabezpieczenie pojazdu na wypadek kradzieży, w postaci lokalizatora wykorzystującego system GNSS (\textit{ang. \textbf{G}lobal \textbf{N}avigation \textbf{S}atellite \textbf{S}ystem}) oraz GSM (\textit{ang. \textbf{G}lobal \textbf{S}ystem for \textbf{M}obile Communications}), zdolnego do analizy stylu jazdy kierowcy, a także systemu informatycznego, który pozwoliłby na przetworzenie pozyskanych danych. Poza nim, w skład systemu informatycznego wchodzą:
 
 \begin{itemize}
 \item Strona WWW, umożliwiająca zdalny podgląd danych pochodzących z przypisanych do użytkownika urządzeń.
@@ -11,13 +11,13 @@ Do dodatkowych wymagań stawianych urządzeniu należą:
 
 \begin{itemize}
 \item Zapewnienie bezpiecznego szyfrowanego kanału komunikacji deaktywującej tryb alarmu.
-\item Posiadanie zastępczego źródła zasilania, umożliwiającego pracę przy wyłączonym silniku pojazdu, bądź w razie odłączenia akumulatora.
-\item Niewielkie wymiary urządzenia w celu umożliwienia łatwego ukrycia w pojeździe. 
+\item Zaoewnienie zastępczego źródła zasilania, umożliwiającego pracę przy wyłączonym silniku pojazdu, bądź w razie odłączenia akumulatora.
+\item Konstrukcja urządzenia o niewielkich wymiarach w celu umożliwienia łatwego ukrycia w pojeździe. 
 \end{itemize}
 
-Moduł umożliwia działanie w dwóch trybach. Pierwszy z nich polega na cyklicznym wysyłaniu na serwer pozycji samochodu w trakcie ruchu wraz z m.in. jego prędkością i przyspieszeniem. Dzięki temu możliwy jest zdalny podgląd stylu jazdy kierowcy, co ułatwia sprawowanie kontroli nad flotą pojazdów.
+Moduł umożliwia działanie w dwóch trybach. Pierwszy z nich polega na cyklicznym wysyłaniu na serwer pozycji i parametrów trakcyjnych samochodu w trakcie jego ruchu. Dzięki temu, możliwa jest między innymi zdalna ocena stylu jazdy kierowcy.
 
-Drugi tryb uaktywnia się w trakcie postoju i stanowi system alarmowego powiadamiania właściciela pojazdu o nieautoryzowanym jego przemieszczeniu w przypadku kradzieży.
+Drugi tryb jest aktywny w trakcie postoju i stanowi system alarmowego powiadamiania właściciela pojazdu o jego przemieszczeniu na przykład w przypadku kradzieży.
 
-W celu zapewnienia bezpieczeństwa, postanowiono rozbić projekt na dwa urządzenia. Jedno z nich – płytka lokalizatora, stanowi rdzeń systemu, umożliwiający lokalizację pojazdu oraz wysyłanie danych na serwer. Drugi moduł stanowi układ deaktywujący, którego zadaniem jest wyłączenie trybu alarmu po odpaleniu samochodu przez upoważnioną do tego osobę. Obie płytki komunikują się ze sobą poprzez protokół Bluetooh Low Energy, zapewniający energooszczędną wymianę danych. Pozwoli to na zasilenie układu deaktywującego z niewielkiej baterii i jego nieprzerwaną pracę nawet przez kilka lat bez konieczności wymiany źródła zasilania. 
-Ponadto, aby umożliwić  bezpieczną transmisję niezbędne jest zastosowanie szyfrowania komunikacji. W celu eliminacji ryzyka podsłuchania procesu wymiany klucza szyfrującego, oba urządzenia zostały wyposażone w moduł NFC (\textit{ang. \textbf{N}ear \textbf{F}ield \textbf{C}ommunication}), zapewniającego bezkontaktową komunikację na odległość do 10 cm.
+W celu zapewnienia bezpieczeństwa, postanowiono zrealizować projekt w postaci dwóch urządzeń. Jedno z nich – płytka lokalizatora, umożliwiająca lokalizację pojazdu oraz wysyłanie danych na serwer. Drugi moduł stanowi układ deaktywujący, którego zadaniem jest wyłączenie trybu alarmu po uruchomieniu samochodu przez upoważnioną do tego osobę. Obie płytki komunikują się ze sobą poprzez protokół Bluetooh Low Energy, zapewniający energooszczędną wymianę danych. Pozwala to na zasilenie układu deaktywującego z niewielkiej baterii i jego nieprzerwaną pracę nawet przez kilka lat bez konieczności wymiany źródła zasilania. 
+Ponadto, aby umożliwić  bezpieczną transmisję danych, niezbędne jest zastosowanie mechanizmu szyfrowania. W celu eliminacji ryzyka podsłuchania procesu wymiany klucza szyfrującego, oba urządzenia zostały wyposażone w moduł NFC (\textit{ang. \textbf{N}ear \textbf{F}ield \textbf{C}ommunication}), zapewniającego bezkontaktową komunikację na odległość do 10 cm.

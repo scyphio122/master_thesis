@@ -1,9 +1,9 @@
 \section{Urządzenie deaktywujące}
 \label{key_tag}
 
-Urządzenie deaktywujące stanowi najprostszy moduł w całym systemie. W jego obrębie nosi miano \textit{Key Tag'a}, ze względu na założenie, iż będzie się ono znajdować przy kluczach pojazdu. Z racji tego, że posiada on tylko jedną, ale jakże istotną funkcję - deaktywację alarmu, jego główną cechą powinna być energooszczędność. Z tego powodu, urządzenie to  pozbawione jest zewnętrznych układów poza anteną BLE i przez większość czasu znajduje się w trybie oszczędzania energii. 
+Urządzenie deaktywujące nosi miano \textit{Key Tag'a}, ze względu na założenie, iż będzie się ono znajdować przy kluczach pojazdu. Z racji tego, że posiada on tylko jedną, ale jakże istotną funkcję - deaktywację alarmu, jego główną cechą powinna być energooszczędność. Z tego powodu, urządzenie to  pozbawione jest zewnętrznych układów, poza anteną BLE, i przez większość czasu znajduje się w trybie oszczędzania energii. 
 
-Aby system w samochodzie stał się operacyjny, pierwszym krokiem jest sparowanie ze sobą modułu lokalizującego z przeznaczonym dla niego urządzeniem deaktywacyjnym. Proces ten polega na wygenerowaniu przez urządzenie lokalizujące 16-bajtowego klucza szyfrującego dla algorytmu AES128, oraz 16-bajtowej komendy deaktywującej po stronie \textit{Key Tag'a}. Losowanie komendy deaktywującej zamiast wprowadzenie jej jako stałej do pamięci mikrokontrolera wszystkich urządzeń stanowi dodatkowe zabezpieczenie systemu. Jak zostało przedstawione we wcześniejszych rozdziałach, operacja parowania realizowana jest poprzez interfejs NFC. Przedstawiono ją na rysunku \ref{fig:image_soft_keytag_key exchange}.
+Aby wprowadzić system w stan operacyjny, konieczne jest sparowanie modułu lokalizującego z przeznaczonym dla niego urządzeniem deaktywacyjnym. Proces ten polega na wygenerowaniu przez urządzenie lokalizujące 16-bajtowego klucza szyfrującego dla algorytmu AES128, oraz 16-bajtowej komendy deaktywującej po stronie \textit{Key Tag'a}. Losowanie komendy deaktywującej zamiast wprowadzenie jej jako stałej do pamięci mikrokontrolera wszystkich urządzeń stanowi dodatkowe zabezpieczenie systemu. Jak zostało przedstawione we wcześniejszych rozdziałach, operacja parowania realizowana jest poprzez interfejs NFC. Przedstawiono ją na rysunku \ref{fig:image_soft_keytag_key exchange}.
 
 \begin{figure}[H]
 	\centering
