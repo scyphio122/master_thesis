@@ -7,21 +7,21 @@ Aplikacja składa się z dwóch głównych modułów: manager'a bazy danych oraz
 Baza danych składa się z 4 tabel. Są to :
 
 \begin{itemize}
-\item Tabela użytkowników
-\item Tabela urządzeń
-\item Tabela tras
-\item Tabela próbek
+\item tabela użytkowników,
+\item tabela urządzeń,
+\item tabela tras,
+\item tabela próbek.
 \end{itemize}
 
 Jako silnik bazodanowy zdecydowano się wykorzystać system SQLite. Stanowi on uproszczony, lecz bardzo wydajny sterownik opierający się na zapytaniach SQL, służący do obsługi relacyjnych baz danych. Kolejną zaletą jest fakt, iż jest on obsługiwany wewnętrznie przez bibliotekę Qt.
 Relacje pomiędzy poszczególnymi tabelami bazy danych zostały przedstawione na rysunku \ref{fig:image_soft_db_relations}.
 
-Założenia struktury bazy danych są następujące:
+Założenia struktury bazy danych są następujące.
 
 \begin{itemize}
-\item Każdy zarejestrowany użytkownik może posiadać więcej niż jedno urządzenie
-\item Każde urządzenie może otrzymać opisującą je krótką nazwę
-\item Do każdego z urządzeń może być przypisana więcej niż jedna trasa
+\item Każdy zarejestrowany użytkownik może posiadać więcej niż jedno urządzenie.
+\item Każde urządzenie może otrzymać opisującą je krótką nazwę.
+\item Do każdego z urządzeń może być przypisana więcej niż jedna trasa.
 \item Wpis trasy posiada wpisy o miejscach i czasach ich rozpoczęcia i zakończenia, oraz zbiór przypisanych do niej próbek lokalizacji zbieranych cyklicznie w czasie jej trwania.
 \end{itemize}
 

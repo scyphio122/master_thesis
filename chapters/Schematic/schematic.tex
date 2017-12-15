@@ -36,7 +36,7 @@ Ze względu na poziom skomplikowania układu, schemat elektroniczny został prze
 \subsection{Układ zasilania}
 
 Akumulator samochodowy jest bardzo wygodnym źródłem zasilania układów elektronicznych. Bliska odległość do alternatora i innych urządzeń o obciążeniu indukcyjnym powoduje generowanie silnych zakłóceń na linii zasilającej. Niekiedy "szpilki" napięciowe osiągają wartość rzędu 100 V. Z tego powodu należy stosować odpowiednie zabezpieczenia (diody zabezpieczające). Powodują one ograniczenie  napięcia do pewnej bezpiecznej wartości. W konstrukcji zastosowane ograniczenie napięciowe wynosi 24,4 V. Zabezpieczeniem przeciążeniowym nadprądowym jest bezpiecznik samochodowy o wartości 4 A. 
-Ponieważ jednym z wymagań układu jest możliwość zasilania bateryjnego, konieczne jest zastosowanie dodatkowego przyłącza zasilania. Urządzenie można zasilić dowolną baterią o napięciu od 4 V do 24 V i wydajności prądowej co najmniej 3 A w szczycie. Ze względu na prawdopodobieństwo wystąpienia różnic napięć pomiędzy dodatkową baterią, a akumulatorem samochodu i wiążącym się z tym przepływem prądu z jednego źródła do drugiego, konieczne jest zastosowanie diód zabezpieczających przed rozładowaniem baterii przez akumulator (gdy napięcie akumulatora jest niższe niż napięcie baterii) lub mogącym doprowadzić baterię do zniszczenia doładowywaniem jej bezpośrednio z akumulatora (gdy napięcie baterii jest niższe od napięcia akumulatora). W trakcie projektowania, zdecydowano się na zastosowanie diód Schottky’ego ze względu na niski spadek napięcia w kierunku przewodzenia (0,2 V - 0,55 V, w zależności od natężenia prądu) oraz szybki czas przełączania ze stanu zaporowego do przewodzenia (ograniczenie krótkotrwałych zaników zasilania przy wyłączaniu pojazdu). Na rysunku \ref{fig:image_mainboard_power_input} przedstawiono układ wejściowy zasilania urządzenia lokalizującego.
+Ponieważ jednym z wymagań układu jest możliwość zasilania bateryjnego, konieczne jest zastosowanie dodatkowego przyłącza zasilania. Urządzenie można zasilić dowolną baterią o napięciu od 4 V do 24 V i wydajności prądowej co najmniej \linebreak 3 A w szczycie. Ze względu na prawdopodobieństwo wystąpienia różnic napięć pomiędzy dodatkową baterią, a akumulatorem samochodu i wiążącym się z tym przepływem prądu z jednego źródła do drugiego, konieczne jest zastosowanie diód zabezpieczających przed rozładowaniem baterii przez akumulator (gdy napięcie akumulatora jest niższe niż napięcie baterii) lub mogącym doprowadzić baterię do zniszczenia doładowywaniem jej bezpośrednio z akumulatora (gdy napięcie baterii jest niższe od napięcia akumulatora). W trakcie projektowania, zdecydowano się na zastosowanie diód Schottky’ego ze względu na niski spadek napięcia w kierunku przewodzenia (0,2 V - 0,55 V, w zależności od natężenia prądu) oraz szybki czas przełączania ze stanu zaporowego do przewodzenia (ograniczenie krótkotrwałych zaników zasilania przy wyłączaniu pojazdu). Na rysunku \ref{fig:image_mainboard_power_input} przedstawiono układ wejściowy zasilania urządzenia lokalizującego.
 
 \begin{figure}[H]
 	\centering
@@ -45,6 +45,7 @@ Ponieważ jednym z wymagań układu jest możliwość zasilania bateryjnego, kon
 	\label{fig:image_mainboard_power_input}
 \end{figure}
 
+\pagebreak
 Ponieważ napięcie wejściowe jest zbyt wysokie do zasilenia układu lokalizatora, stało się koniecznym zastosowanie przetwornicy DC/DC. Schemat wykorzystanej przetwornicy przedstawiono na rysunku \ref{fig:image_mainboard_power_converter}.
 
 \begin{figure}[H]
@@ -54,9 +55,9 @@ Ponieważ napięcie wejściowe jest zbyt wysokie do zasilenia układu lokalizato
 	\label{fig:image_mainboard_power_converter}
 \end{figure}
 
-Zastosowana w urządzeniu przetwornica umożliwia zasilanie napięciami od 4 V do 38 V. Wybrano ją ze względu na niewielką liczbę, w porównaniu do innych modułów, zewnętrznych komponentów, niezbędnych do jej działania, a także wysoką sprawność rzędu od 85\% do 90\% w zależności od chwilowego natężenia prądu. Wytwarza ona na wyjściu napięcie o wartości 4 V, którym zasilany jest moduł GSM oraz dalszy stopień obniżania napięcia.
+Zastosowana w urządzeniu przetwornica umożliwia zasilanie napięciami od 4 V do 38 V. Wybrano ją ze względu na niewielką liczbę, w porównaniu do innych modułów, zewnętrznych komponentów, niezbędnych do jej działania, a także wysoką sprawność rzędu od 85\% do 90\% w zależności od chwilowego natężenia prądu. Wytwarza ona na wyjściu napięcie o wartości \linebreak 4 V, którym zasilany jest moduł GSM oraz dalszy stopień obniżania napięcia.
 
-Dodatkowo, z napięcia wyjściowego z przetwornicy uzyskiwane jest napięcie o wartości 3,3 V. Jest ono niezbędne do zasilania układów mikrokontrolera, pamięci flash, akcelerometru oraz układu GPS. Szacowany maksymalny pobór prądu przez te układy wynosi ok. 200 mA, stąd uwzględniając odpowiedni zapas zastosowano stabilizator napięcia LDO (\textit{ang. \textbf{L}ow \textbf{D}ropout \textbf{S}tabilizer}) o maksymalnym natężeniu prądu wyjściowego 0,5 A. Jego schemat przdstawiono na rysunku \ref{fig:image_mainboard_power_ldo}.
+Dodatkowo, z napięcia wyjściowego z przetwornicy uzyskiwane jest napięcie o wartości \linebreak 3,3 V. Jest ono niezbędne do zasilania układów mikrokontrolera, pamięci flash, akcelerometru oraz układu GPS. Szacowany maksymalny pobór prądu przez te układy wynosi\linebreak ok. 200 mA, stąd uwzględniając odpowiedni zapas zastosowano stabilizator napięcia LDO \linebreak (\textit{ang. \textbf{L}ow \textbf{D}ropout \textbf{S}tabilizer}) o maksymalnym natężeniu prądu wyjściowego 0,5 A. Jego schemat przdstawiono na rysunku \ref{fig:image_mainboard_power_ldo}.
 
 \begin{figure}[H]
 	\centering
@@ -67,7 +68,7 @@ Dodatkowo, z napięcia wyjściowego z przetwornicy uzyskiwane jest napięcie o w
 
 \subsection{Moduł mikrokontrolera}
 
-Układ lokalizatora wykorzystuje mikrokontroler nRF52832 firmy Nordic Semiconductor. Układ ten posiada 32 bitowy rdzeń Cortex-M4 zaprojektowany przez firmę ARM, sprzętową jednostkę FPU, 512 KB wewnętrznej pamięci Flash oraz 64 KB pamięci RAM. Zdecydowano się na wykorzystanie tego mikrokontrolera ze względu na kilka czynników. Pierwszym z nich jest jego architektura - posiada wbudowany układ radiowy działający na częstotliwości 2,4 GHz i umożliwiający komunikację w standardzie Bluetooth Low Energy, ANT lub wykorzystanie własnego protokołu. Dodatkowym atutem tego mikrokontrolera jest wyposażenie go w sprzętowy interfejs NFCT, umożliwiający wykorzystanie modułu jako tag (urządzenie podrzędne) w komunikacji poprzez interfejs NFC. Ponadto ma bardzo duże możliwości obliczeniowe – wbudowany wewnętrzny zegar taktujący o częstotliwości 64 MHz umożliwia bardzo szybkie wykonywanie zaprogramowanych zadań i szybki powrót do trybu oszczędzania energii. Zużycie energii przez ten procesor jest bardzo niewielkie. W trakcie wykonywania programu pobór prądu wynosi 58 $\mu A$ /MHz gdy kod wykonywany jest z pamięci flash, natomiast w trybie oszczędzania energii pobór spada do ok 1,9 $\mu A$. Ostatnim i być może najważniejszym czynnikiem decydującym na wybranie tego układu jest posiadane przez autora doświadczenie zawodowe w programowaniu układów od tego producenta, a zatem bardzo dobra znajomość jego możliwości i SDK (\textit{ang. \textbf{S}oftware \textbf{D}evelopment \textbf{K}it}). Schemat mikrokontrolera przedstawiono na rysunku \ref{fig:image_mainboard_functional_mcu}.
+Układ lokalizatora wykorzystuje mikrokontroler nRF52832 firmy Nordic Semiconductor. Układ ten posiada 32 bitowy rdzeń Cortex-M4 zaprojektowany przez firmę ARM, sprzętową jednostkę FPU, 512 KB wewnętrznej pamięci Flash oraz 64 KB pamięci RAM. Zdecydowano się na wykorzystanie tego mikrokontrolera ze względu na kilka czynników. Pierwszym z nich jest jego architektura - posiada wbudowany układ radiowy działający na częstotliwości 2,4 GHz i umożliwiający komunikację w standardzie Bluetooth Low Energy, ANT lub wykorzystanie własnego protokołu. Dodatkowym atutem tego mikrokontrolera jest wyposażenie go w sprzętowy interfejs NFCT, umożliwiający wykorzystanie modułu jako tag (urządzenie podrzędne) w komunikacji poprzez interfejs NFC. Ponadto ma bardzo duże możliwości obliczeniowe – wbudowany wewnętrzny zegar taktujący o częstotliwości 64 MHz umożliwia bardzo szybkie wykonywanie zaprogramowanych zadań i szybki powrót do trybu oszczędzania energii. Zużycie energii przez ten procesor jest bardzo niewielkie. W trakcie wykonywania programu pobór prądu wynosi \linebreak 58 $\mu A$/MHz gdy kod wykonywany jest z pamięci flash, natomiast w trybie oszczędzania energii pobór spada do ok 1,9 $\mu A$. Ostatnim i być może najważniejszym czynnikiem decydującym na wybranie tego układu jest posiadane przez autora doświadczenie zawodowe w programowaniu układów od tego producenta, a zatem bardzo dobra znajomość jego możliwości i \linebreak SDK (\textit{ang. \textbf{S}oftware \textbf{D}evelopment \textbf{K}it}). Schemat mikrokontrolera przedstawiono na rysunku \ref{fig:image_mainboard_functional_mcu}.
 
 \begin{figure}[H]
 	\centering
@@ -129,7 +130,7 @@ Schemat modułu akcelerometru przedstawiono na rysunku \ref{fig:image_mainboard_
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=15cm]{img/schematics/mainboard_functional_accelerometer.jpg}
+	\includegraphics[width=12cm]{img/schematics/mainboard_functional_accelerometer.jpg}
 	\caption{Schemat modułu akcelerometru w urządzeniu lokalizującym. \\ Źródło: Opracowanie własne.}
 	\label{fig:image_mainboard_functional_accelerometer}
 \end{figure}
@@ -137,7 +138,14 @@ Schemat modułu akcelerometru przedstawiono na rysunku \ref{fig:image_mainboard_
 \subsection{Moduł NFC}
 
 Moduł ten stanowi istotną część z punktu widzenia bezpieczeństwa komunikacji bezprzewodowej. Jest ono zapewnione poprzez zastosowanie szyfrowania wiadomości. Jeśli jednak ktoś podsłucha transmisję inicjalizacji urządzenia, w której przekazywane są klucze szyfrujące, całe zabezpieczenie traci sens. Dzięki zastosowaniu modułu NFC, możliwość podsłuchania transmisji wymiany kluczy szyfrujących zostaje zniwelowana poprzez fizyczne ograniczenia zasięgu komunikacji. NFC posiada bowiem maksymalny zasięg do 10 cm.
-Komunikacja odbywa się pomiędzy dwoma urządzeniami. Ze względu na sposób transmisji, jedno z urządzeń inicjuje komunikację. Inicjator generuje zmienne pole magnetyczne, w którym może (lecz nie musi) kodować dane wysyłane do urządzenia docelowego. Urządzenie docelowe wykrywa to pole i może odpowiedzieć poprzez odpowiednie zniekształcenie go, które jest wykrywane przez inicjator. Urządzenie docelowe nie generuje żadnego pola magnetycznego. Może jedynie zniekształcać pole generowane przez inicjator. Stąd wynika, że inicjator musi mieć znacznie większe zużycie energii niż urządzenie docelowe – tag. W urządzeniu lokalizacyjnym zastosowano moduł inicjatora NFC, którego schemat przedstawiono na rysunkach \ref{fig:image_mainboard_NFC_digital} - część cyfrowa oraz \ref{fig:image_mainboard_NFC_analog} - część analogowa.
+Komunikacja odbywa się pomiędzy dwoma urządzeniami. Ze względu na sposób transmisji, jedno z urządzeń inicjuje komunikację. Inicjator generuje zmienne pole magnetyczne, w którym może (lecz nie musi) kodować dane wysyłane do urządzenia docelowego. Urządzenie docelowe wykrywa to pole i może odpowiedzieć poprzez odpowiednie zniekształcenie go, które jest wykrywane przez inicjator. Urządzenie docelowe nie generuje żadnego pola magnetycznego. Może jedynie zniekształcać pole generowane przez inicjator. Stąd wynika, że inicjator musi mieć znacznie większe zużycie energii niż urządzenie docelowe – tag. W urządzeniu lokalizacyjnym zastosowano moduł inicjatora NFC, którego schemat przedstawiono na rysunkach \ref{fig:image_mainboard_NFC_analog} - część analogowa oraz \ref{fig:image_mainboard_NFC_digital} - część cyfrowa.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm]{img/schematics/mainboard_NFC_analog.jpg}
+	\caption{Schemat części analogowej modułu NFC w urządzeniu lokalizującym. \\ Źródło: Opracowanie własne.}
+	\label{fig:image_mainboard_NFC_analog}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
@@ -146,12 +154,7 @@ Komunikacja odbywa się pomiędzy dwoma urządzeniami. Ze względu na sposób tr
 	\label{fig:image_mainboard_NFC_digital}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=15cm]{img/schematics/mainboard_NFC_analog.jpg}
-	\caption{Schemat części analogowej modułu NFC w urządzeniu lokalizującym. \\ Źródło: Opracowanie własne.}
-	\label{fig:image_mainboard_NFC_analog}
-\end{figure}
+
 
 
 \clearpage
