@@ -31,6 +31,34 @@ Wszystkie z powyższych protokołów zostały pokrótce opisane, a następnie kr
 
 We wcześniejszych podrozdziałach dokonano krótkiej analizy każdego z protokołów i interfejsów wykorzystanych w pracy. Niniejszy podrozdział stanowi ich podsumowanie ze wskazaniem najważniejszych cech, ograniczeń i możliwości wykorzystania. Z rozważań wykluczono jednakże protokół NMEA 0183 ze względu na fakt, iż jest to jedynie narzucony przez producentów modułów GPS standard komunikacji.
 
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[H]
+\centering
+\caption{Podsumowanie cech systemów i protokołów GSM, GPS, BLE oraz NFC.\\ Źródło: Opracowanie własne.}
+\label{table:protocol_summary}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{cllll}
+\hline
+\rowcolor[HTML]{3166FF} 
+{\color[HTML]{FFFFFF} \textbf{Parametr}}                                                                            & \multicolumn{1}{c}{\cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF} \textbf{GSM}}}                                                    & \multicolumn{1}{c}{\cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF} \textbf{GPS}}}                                                  & \multicolumn{1}{c}{\cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF} \textbf{BLE}}}                                                                      & \multicolumn{1}{c}{\cellcolor[HTML]{3166FF}{\color[HTML]{FFFFFF} \textbf{NFC}}}                                                               \\ \hline
+\multicolumn{1}{|c|}{}                                                                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Ogromny zasięg,\\ dzięki \\ rozbudowanej\\ sieci stacji \\ naziemnych\end{tabular}} & \multicolumn{1}{l|}{Zasięg globalny}                                                                                             & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Średni zasięg \\ (do 50 m)\end{tabular}}                                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Bardzo bliski \\ zasięg (do 10 cm)\end{tabular}}                                               \\ \cline{2-5} 
+\multicolumn{1}{|c|}{}                                                                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Możliwość \\ odbioru\\ i transmisji\end{tabular}}                                   & \multicolumn{1}{l|}{Tylko do odczytu}                                                                                            & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Możliwość \\ odbioru i\\ transmisji\end{tabular}}                                                     & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Możliwość \\ odbioru i\\ transmisji\end{tabular}}                                              \\ \cline{2-5} 
+\multicolumn{1}{|c|}{}                                                                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Prędkość rzędu \\ 57,6 kb/s (odbiór) i\\ 14,5 kb/s (transmisja)\end{tabular}}       & \multicolumn{1}{l|}{50 bit/s}                                                                                                    & \multicolumn{1}{l|}{Około 125 Kb/s}                                                                                                                  & \multicolumn{1}{l|}{Około 106 Kb/s}                                                                                                           \\ \cline{2-5} 
+\multicolumn{1}{|c|}{\multirow{-4}{*}{\textbf{Właściwości}}}                                                        & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Wysoki pobór \\ prądu \\ (w szczycie do 1,5 A)\end{tabular}}                        & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Średni pobór \\ prądu (ok. 30 mA \\ w trakcie \\ śledzenia pozycji)\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Niski pobór \\ prądu \\ (ok. 7-15mA \\ chwilowego \\ poboru \\ w momencie\\ transmisji)\end{tabular}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Pobór energii\\ rzędu 100 mA \\ w trybie \\ inicjatora, 0mA w \\ trybie pasywnym\end{tabular}} \\ \hline
+\multicolumn{1}{|c|}{}                                                                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Rozmowy \\ głosowe\end{tabular}}                                                    & \multicolumn{1}{l|}{Odczyt lokalizacji}                                                                                          & \multicolumn{1}{l|}{}                                                                                                                                & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Bezpieczna, \\ bezkontaktowa\\ transmisja \\ danych\end{tabular}}                              \\ \cline{2-3} \cline{5-5} 
+\multicolumn{1}{|c|}{}                                                                                              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Wiadomości \\ SMS\end{tabular}}                                                     & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Bardzo dokładny\\ odczyt prędkości\end{tabular}}                                  & \multicolumn{1}{l|}{}                                                                                                                                & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Parowanie \\ urządzeń\end{tabular}}                                                            \\ \cline{2-3} \cline{5-5} 
+\multicolumn{1}{|c|}{\multirow{-3}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Możliwość \\ wykorzystania\end{tabular}}}} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Dostęp do \\ internetu\end{tabular}}                                                & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Bardzo dokładne\\ źródło czasu\end{tabular}}                                      & \multicolumn{1}{l|}{\multirow{-3}{*}{\begin{tabular}[c]{@{}l@{}}Energooszczędna \\ transmisja danych\end{tabular}}}                                  & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Wymiana kluczy\\ szyfrujących\end{tabular}}                                                    \\ \hline
+\end{tabular}}
+\end{table}
+
+
+
+
+\iffalse
 \begin{table}[H]
 \centering
 \caption{Podsumowanie cech systemów i protokołów GSM, GPS, BLE oraz NFC.\\ Źródło: Opracowanie własne.}
@@ -48,3 +76,4 @@ We wcześniejszych podrozdziałach dokonano krótkiej analizy każdego z protoko
 \end{tabular}
 \end{table}
 
+\fi
